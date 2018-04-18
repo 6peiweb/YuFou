@@ -8,7 +8,7 @@ const hotMiddlewareScript = 'webpack-hot-middleware/client?timeout=2000&reload=t
 
 const config = {
   entry: {
-    main: ['./src/main.js', hotMiddlewareScript],
+    App: ['./src/App.ts', hotMiddlewareScript],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -21,7 +21,19 @@ const config = {
     rules: [
       {
         test: /\.vue$/,
-        use: 'vue-loader'
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            'scss': 'vue-style-loader!css-loader!sass-loader'
+          }
+        }
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        }
       },
       {
         test: /\.css$/,
@@ -35,12 +47,8 @@ const config = {
         use: [
           'style-loader',
           'css-loader',
-          'sass-loadeer'
+          'sass-loader'
         ]
-      },
-      { 
-        test: /\.ts$/,
-        use: 'ts-loader'
       },
       { 
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -60,7 +68,7 @@ const config = {
   //   hot: true
   // },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.ts', 'tsx', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': path.resolve(__dirname, 'src')

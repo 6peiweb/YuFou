@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "strict": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es5",
+    "noImplicitAny": true,
+    "removeComments": true
+  },
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

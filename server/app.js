@@ -32,6 +32,6 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use(webpackHotMiddleware(compiler));
 
-server.listen(3000, () => {
-  console.log(`Your application is running here: ` + chalk.blue('http://localhost:3000'));
+server.listen(4000, () => {
+  console.log(`Your application is running here: ` + chalk.blue('http://0.0.0.0:4000'));
 });
