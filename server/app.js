@@ -6,7 +6,7 @@ const reload = require('reload');
 const express = require('express');
 const webpack = require('webpack');
 const router = require('./router/router');
-const webpackDevConfig = require('../webpack.config');
+const webpackDevConfig = require('../build/webpack.config');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 

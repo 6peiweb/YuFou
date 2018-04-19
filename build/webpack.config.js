@@ -24,13 +24,20 @@ const config = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            'scss': 'vue-style-loader!css-loader!sass-loader'
+            // 'scss': 'vue-style-loader!css-loader!sass-loader'
           }
         }
       },
       {
+        test: /\.ts$/,
+        loader: 'tslint-loader',
+        enforce: 'pre',
+        exclude: /node_modules/
+      },
+      {
         test: /\.tsx?$/,
         loader: 'ts-loader',
+        exclude: /node_modules/,
         options: {
           appendTsSuffixTo: [/\.vue$/],
         }
@@ -71,7 +78,7 @@ const config = {
     extensions: ['.js', '.ts', 'tsx', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, '../src')
     }
   },
   plugins:[

@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     onSubmit () {
-      console.log('ss')
+      console.log('ss');
     }
   },
   components: {

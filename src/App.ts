@@ -1,11 +1,14 @@
-import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+/// <reference path="./typings/index.d.ts" />
 
-Vue.use(ElementUI);
-new Vue({
+import Vue from 'vue'
+import ElementUI from 'element-ui'
+import App from './App.vue'
+import router from './router'
+import 'element-ui/lib/theme-chalk/index.css'
+
+Vue.use(ElementUI)
+
+const vm = new Vue({
   el: '#app',
   router,
   components: { App },
