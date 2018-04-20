@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const reload = require('reload');
 const express = require('express');
 const webpack = require('webpack');
+const bodyParser = require('body-parser');
 const router = require('./router/router');
 const webpackDevConfig = require('../build/webpack.config');
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -16,6 +17,8 @@ const compiler = webpack(webpackDevConfig);
 
 reload(app);
 
+app.use(bodyParser.json()); // 解析 application/json
+app.use(bodyParser.urlencoded()); // 解析 application/x-www-form-urlencoded
 app.use(router);
 // app.engine('html', ejs.__express);
 // app.set('views', path.resolve(__dirname, '../dist'));

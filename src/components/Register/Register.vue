@@ -21,31 +21,7 @@
   </div>
 </template>
 
-<script lang="ts">
-
-export default {
-  name: 'Register',
-  data () {
-    return {
-      title: '注册',
-      registerInfo: {
-        username: '',
-        password: '',
-        secondpassword: ''
-      },
-      identifyCode: ''
-    }
-  },
-  methods: {
-    onSubmit () {
-      console.log('ss');
-    }
-  },
-  components: {
-    // Verify
-  }
-}
-</script>
+<script src="./Register.ts" lang="ts"></script>
 
 <style lang="sass">
 @keyframes RegisterMobile
