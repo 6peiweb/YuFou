@@ -7,7 +7,7 @@ const express = require('express');
 const webpack = require('webpack');
 const bodyParser = require('body-parser');
 const router = require('./router/router');
-const webpackDevConfig = require('../build/webpack.config');
+const webpackDevConfig = require('../build/webpack.dev.conf');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 

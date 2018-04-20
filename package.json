@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config webpack.config.js",
-    "start": "supervisor -w server,webpack.config.js server/app",
-    "build": "webpack --progress --config webpack.config.js"
+    "dev": "webpack-dev-server --inline --progress --config ./build/webpack.dev.conf.js",
+    "start": "supervisor -w server,build server/app",
+    "build": "webpack --progress --config ./build/webpack.config.js"
   },
   "author": "",
   "license": "ISC",

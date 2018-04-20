@@ -1,32 +1,26 @@
 const path = require('path');
+const config = require('../config');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin');
 
-const hotMiddlewareScript = 'webpack-hot-middleware/client?timeout=2000&reload=true';
-
-const config = {
+module.exports = {
   entry: {
-    App: ['./src/App.ts', hotMiddlewareScript],
+    App: ['./src/App.ts', config.hotMiddlewareScript],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../.dist'),
     filename: '[name]-[hash:8].js',
     publicPath: '/'
   },
-  mode: 'development', // production || development 当前运行环境
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development', // production || development 当前运行环境
   devtool: 'eval-source-map',
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            // 'scss': 'vue-style-loader!css-loader!sass-loader'
-          }
-        }
+        loader: 'vue-loader'
       },
       {
         test: /\.ts$/,
@@ -68,12 +62,6 @@ const config = {
       }
     ]
   },
-  // devServer: {
-  //   contentBase: path.resolve(__dirname, 'dist'),
-  //   compress: true,
-  //   port: 3000,
-  //   hot: true
-  // },
   resolve: {
     extensions: ['.js', '.ts', 'tsx', '.vue', '.json'],
     alias: {
@@ -82,12 +70,6 @@ const config = {
     }
   },
   plugins:[
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"development"'
-      },
-      LOCAL_ROOT: JSON.stringify("http://ziksang.com")
-    }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
@@ -96,10 +78,11 @@ const config = {
       hash: true,
       cache: true
     }),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['.dist'], {
+      root: path.resolve(__dirname, '..'),
+      verbose: true
+    }),
     new UglifyJsWebpackPlugin()
   ],
   cache: true
 };
-
-module.exports = config;
