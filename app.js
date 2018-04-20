@@ -31,7 +31,7 @@ app.get('/',(req,res)=>{
 * express.static就帮我们托管了public文件夹中的静态资源。 
 * 只要有 127.0.0.1：3000/XXX/AAA 的路径都会去public文件夹下找XXX文件夹下的AAA文件然后发送给浏览器。 
 */  
-app.use('/static',express.static(path.join(__dirname,'./public')));        //一句话就搞定。  
+app.use('/static',express.static(path.join(__dirname,'./public')));
 
 /*socket*/  
 io.on('connection',(socket)=>{              //监听客户端的连接事件  
