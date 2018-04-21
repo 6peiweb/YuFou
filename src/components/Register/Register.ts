@@ -17,7 +17,7 @@ export default class Register extends Vue {
   };
 
   onSubmit () {
-    console.log(this.registerInfo);
+    console.log(this);
     Http.postRegisterInfo({
       username: this.registerInfo.username,
       password: this.registerInfo.username,

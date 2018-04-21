@@ -18,7 +18,7 @@ const compiler = webpack(webpackDevConfig);
 reload(app);
 
 app.use(bodyParser.json()); // 解析 application/json
-app.use(bodyParser.urlencoded()); // 解析 application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true })); // 解析 application/x-www-form-urlencoded
 app.use(router);
 // app.engine('html', ejs.__express);
 // app.set('views', path.resolve(__dirname, '../dist'));

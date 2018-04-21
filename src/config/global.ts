@@ -1,13 +1,13 @@
-/**
- * 初始化全局依赖的一些工具类等
- * */
+/*
+ * 初始化全局依赖的一些工具类
+ */
 
-const axios = require('axios');
+const axios = require('axios')
 
-ILib = <lp.ILib>{
+window['ILib'] = {
   md5: require('md5'),
   http: axios.create({
     timeout: 10 * 1000,
-    headers: {'X-Requested-With': 'XMLHttpRequest'},
-  }),
-};
+    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+  })
+}

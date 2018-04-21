@@ -23,5 +23,4 @@ declare namespace lp {
   
 }
 
-
 declare var ILib: lp.ILib;

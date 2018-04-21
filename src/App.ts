@@ -1,4 +1,5 @@
 /// <reference path="./typings/index.d.ts" />
+/// <reference path="./typings/global.d.ts" />
 
 import Vue from 'vue'
 import ElementUI from 'element-ui'

@@ -7,14 +7,15 @@ const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: {
-    App: ['./src/App.ts', config.hotMiddlewareScript],
+    env: [process.env.NODE_ENV === 'development' ? './src/config/dev/index.ts' : './src/config/prod/index.ts'],
+    app: ['./src/App.ts', config.hotMiddlewareScript],
   },
   output: {
     path: path.resolve(__dirname, '../.dist'),
     filename: '[name]-[hash:8].js',
     publicPath: '/'
   },
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development', // production || development 当前运行环境
+  mode: process.env.NODE_ENV === 'development' ? 'development' : 'production', // production || development 当前运行环境
   devtool: 'eval-source-map',
   module: {
     rules: [
@@ -76,7 +77,12 @@ module.exports = {
       favicon: './static/icon.png',
       template: './index.html',
       hash: true,
-      cache: true
+      cache: true,
+      inject: true,
+      chunksSortMode: (a, b) => {
+        const orders = ['env', 'app']; // 对chunk在index.html中的排列顺序
+        return orders.indexOf(a.names[0]) - orders.indexOf(b.names[0]);
+      }
     }),
     new CleanWebpackPlugin(['.dist'], {
       root: path.resolve(__dirname, '..'),

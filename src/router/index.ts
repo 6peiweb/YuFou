@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import Router, { RouteConfig } from 'vue-router';
+import Vue from 'vue'
+import Router, { RouteConfig } from 'vue-router'
 import Register from '@/components/Register/Register.vue'
 
-Vue.use(Router);
+Vue.use(Router)
 
 const routes: Array<lp.RouteConfig> = [
   {
@@ -14,4 +14,4 @@ const routes: Array<lp.RouteConfig> = [
 
 export default new Router({
   routes
-});
+})
