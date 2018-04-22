@@ -1,13 +1,4 @@
-<template>
-  <div id="app">
-    <router-link tag="div" class="tab-item" to="/register">
-      <span class="tab-link">注册</span>
-    </router-link>
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
-  </div>
-</template>
+<template src="./App.pug" lang="pug"></template>
 
 <script lang="ts">
 export default {
