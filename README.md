@@ -1,5 +1,10 @@
 # WuChat
 
+# [1.0.5] - [2018-04-22 22:25] liupei
+1. 引用pug模板
+2. package.json配置
+3. webpack配置优化
+
 # [1.0.4] - [2018-04-20 18:04] liupei
 1. Axios引入
 2. 注册api开发完成
