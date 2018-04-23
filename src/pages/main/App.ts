@@ -1,23 +1,29 @@
-import Component from 'vue-class-component';
+import Component from 'vue-class-component'
 import Vue from 'Vue'
+import Message from '@/components/Message/Message.vue'
+import Contacts from '@/components/Contacts/Contacts.vue'
 
 @Component({
   name: 'app',
   watch: {
     selectedTab: 'watchSelectTab'
+  },
+  components: {
+    Message,
+    Contacts
   }
 })
 
 export default class App extends Vue {
   private tablist: Array<lp.Tabbar> = [
     { id: 'message', title: '消息', imgSrc: 'active-message.svg' },
-    { id: 'address', title: '联系人', imgSrc: 'address.svg' },
+    { id: 'contacts', title: '联系人', imgSrc: 'contacts.svg' },
     { id: 'setting', title: '设置', imgSrc: 'setting.svg' },
   ];
   private selectedTab: string = 'message';
   private selectedHead: object = {
     message: '消息',
-    address: '联系人',
+    contacts: '联系人',
     setting: '设置'
   }
 
