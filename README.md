@@ -1,5 +1,10 @@
 # WuChat
 
+# [1.0.6] - [2018-04-23 22:41] liupei
+1. 引入UI框架Vint-ui
+2. App组件重新开发，Message、Contracts、Setting组件开发
+3. 图片从本地打包部署到服务器静态文件，优化编译过程
+
 # [1.0.5] - [2018-04-22 22:25] liupei
 1. 引用pug模板
 2. package.json配置
