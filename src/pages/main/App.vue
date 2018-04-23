@@ -1,9 +1,5 @@
-<template src="./App.pug" lang="pug"></template>
+<template src='./App.pug' lang='pug'></template>
 
-<script lang="ts">
-export default {
-  name: 'App'
-}
-</script>
+<script src='./App.ts' lang='ts'></script>
 
-<style src="./App.scss" lang="scss"></style>
+<style src='./App.scss' lang='scss'></style>

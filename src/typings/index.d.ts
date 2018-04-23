@@ -20,6 +20,12 @@ declare namespace lp {
     http: any;
     md5: any;
   }
+
+  export interface Tabbar {
+    id: string;
+    title: string;
+    imgSrc: string;
+  }
   
 }
 

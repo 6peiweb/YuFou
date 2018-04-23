@@ -3,7 +3,7 @@ import Http from './lib/http'
 import Vue from 'Vue'
 
 @Component({
-  name: 'Register',
+  name: 'Register'
 })
 
 export default class Register extends Vue {

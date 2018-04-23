@@ -20,6 +20,7 @@ const port = 4000;
 
 reload(app);
 
+app.use(express.static('static'));
 app.use(bodyParser.json()); // 解析 application/json
 app.use(bodyParser.urlencoded({ extended: true })); // 解析 application/x-www-form-urlencoded
 app.use(router);
