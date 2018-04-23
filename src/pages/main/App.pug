@@ -3,6 +3,7 @@
     //- router-link(to='/register' slot='left')
     //-   mt-button(icon='back') 返回
     mt-button(icon='search' slot='right')
+  keep-alive
   component(:is='selectedTab')
   mt-tabbar(fixed v-model='selectedTab')
     mt-tab-item(v-for='item in tablist' :id='item.id' :key='item.id')

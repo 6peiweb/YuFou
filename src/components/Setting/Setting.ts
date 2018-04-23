@@ -2,10 +2,10 @@ import Component from 'vue-class-component'
 import Vue from 'Vue'
 
 @Component({
-  name: 'contacts',
+  name: 'setting',
 })
 
-export default class Contacts extends Vue {
+export default class Setting extends Vue {
   private tablist: Array<lp.Tabbar> = [
     { id: 'message', title: '消息', imgSrc: 'active-message.svg' },
     { id: 'address', title: '联系人', imgSrc: 'address.svg' },

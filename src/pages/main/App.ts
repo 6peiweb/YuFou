@@ -2,6 +2,7 @@ import Component from 'vue-class-component'
 import Vue from 'Vue'
 import Message from '@/components/Message/Message.vue'
 import Contacts from '@/components/Contacts/Contacts.vue'
+import Setting from '@/components/Setting/Setting.vue'
 
 @Component({
   name: 'app',
@@ -10,7 +11,8 @@ import Contacts from '@/components/Contacts/Contacts.vue'
   },
   components: {
     Message,
-    Contacts
+    Contacts,
+    Setting
   }
 })
 
