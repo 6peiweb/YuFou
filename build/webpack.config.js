@@ -8,7 +8,7 @@ const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
   entry: {
     env: [process.env.NODE_ENV === 'development' ? './src/config/dev/index.ts' : './src/config/prod/index.ts'],
-    app: ['./src/App.ts', config.hotMiddlewareScript],
+    app: ['./src/index.js', config.hotMiddlewareScript],
   },
   output: {
     path: path.resolve(__dirname, '../.dist'),
@@ -32,10 +32,10 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
-        exclude: /node_modules/,
         options: {
           appendTsSuffixTo: [/\.vue$/]
-        }
+        },
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
@@ -59,7 +59,8 @@ module.exports = {
     extensions: ['.js', '.ts', 'tsx', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': path.resolve(__dirname, '../src')
+      '@': path.resolve(__dirname, '../src'),
+      '@@': path.resolve(__dirname, '../src/source')
     }
   },
   plugins:[

@@ -1,4 +1,5 @@
-const ejs = require('ejs');
+const os = require('os');
+// const ejs = require('ejs');
 const http = require('http');
 const path = require('path');
 const chalk = require('chalk');
@@ -14,6 +15,8 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const app = express();
 const server = http.createServer(app);
 const compiler = webpack(webpackDevConfig);
+const ip = os.networkInterfaces().en0[1].address;
+const port = 4000;
 
 reload(app);
 
@@ -35,6 +38,6 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use(webpackHotMiddleware(compiler));
 
-server.listen(4000, () => {
-  console.log(`Your application is running here: ` + chalk.blue('http://0.0.0.0:4000'));
+server.listen(port, () => {
+  console.log(`Your application is running here: ` + chalk.blue(`http://${ip}:${port}`));
 });

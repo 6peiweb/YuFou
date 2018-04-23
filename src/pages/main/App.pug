@@ -1,0 +1,17 @@
+#app
+  mt-header(title='消息')
+    router-link(to='/register' slot='left')
+      mt-button(icon='back') 返回
+    mt-button(icon='more' slot='right')
+  mt-tabbar
+    mt-tab-item#message.active
+      img(slot='icon' src='@@/image/header/message.svg')
+      span 消息
+    mt-tab-item#address
+      img(slot='icon' src='@@/image/header/address.svg')
+      span 联系人
+    mt-tab-item#setting
+      img(slot='icon' src='@@/image/header/setting.svg')
+      span 设置
+  keep-alive
+    router-view
