@@ -1,7 +1,34 @@
+$tabbar: #fafafa;
+$background: #f3f3f3;
+$side: 0.75em;
+
+@mixin position($top) {
+  position: absolute;
+  top: $top;
+}
+
 .setting {
+  background: $tabbar;
 
   .userinfo {
-    height: 60px;
+    height: 5em;
+    margin-top: $side;
+
+    .portrait {
+      @include position($side);
+      left: $side;
+      border: 0.05em solid $background;
+      border-radius: 0.2em;
+    }
+
+    .moreinfo {
+      @include position(2.5 * $side);
+      right: $side;
+    }
+  }
+
+  .config {
+    margin-top: $side;
   }
 
 }

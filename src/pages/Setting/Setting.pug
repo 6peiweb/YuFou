@@ -1,4 +1,11 @@
 div.setting
-  mt-cell.userinfo(icon='more' :title='UserName' :label='UserName')
-    span {{ UserName }}
-    img(slot='-' src='' width='50' height='50')
+  mt-cell.userinfo
+    img.portrait(src='@@/image/wuchat.png' width='56' height='56')
+    .moreinfo
+      img.qrcode(src='/image/setting/qrcode.svg' width='20' height='20')
+      img.more(src='/image/setting/more.svg' width='20' height='20')
+
+  mt-cell.config(title='设置')
+    img(slot='icon' src='/image/setting/config.svg' width='20' height='20')
+    img.more(src='/image/setting/more.svg' width='20' height='20')
+    
