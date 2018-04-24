@@ -1,14 +1,35 @@
 import Vue from 'vue'
-import Router, { RouteConfig } from 'vue-router'
-import Register from '@/components/Register/Register.vue'
+import Router from 'vue-router'
+import App from '@/pages/main/App.vue'
+import Message from '@/pages/Message/Message.vue'
+import Contacts from '@/pages/Contacts/Contacts.vue'
+import Setting from '@/pages/Setting/Setting.vue'
 
 Vue.use(Router)
 
 const routes: Array<lp.RouteConfig> = [
   {
-    path: '/register',
-    name: 'Register',
-    component: Register
+    path: '/',
+    name: 'app',
+    component: App,
+    redirect: {
+      name: 'message'
+    }
+  },
+  {
+    path: '/message',
+    name: 'message',
+    component: Message
+  },
+  {
+    path: '/contacts',
+    name: 'contacts',
+    component: Contacts
+  },
+  {
+    path: '/setting',
+    name: 'setting',
+    component: Setting
   }
 ]
 

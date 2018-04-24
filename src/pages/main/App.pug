@@ -1,13 +1,12 @@
 #app
   mt-header(fixed :title='selectedHead[selectedTab]')
-    //- router-link(to='/register' slot='left')
-    //-   mt-button(icon='back') 返回
     mt-button(icon='search' slot='right')
-  keep-alive
-  component(:is='selectedTab')
   mt-tabbar(fixed v-model='selectedTab')
-    mt-tab-item(v-for='item in tablist' :id='item.id' :key='item.id')
+    mt-tab-item(v-for='item in tablist' :id='item.id' :key='item.id' :to='item.id')
       img(slot='icon' :src='getImgSrc(item.imgSrc)')
       span {{ item.title }}
+      div.router-link
+        router-link(:to='item.id')
   keep-alive
-    router-view
+    transition(name='fade')
+      router-view
