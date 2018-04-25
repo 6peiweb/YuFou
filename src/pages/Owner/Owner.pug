@@ -3,12 +3,12 @@ div.owner
     img.portrait(src='@@/image/wuchat.png' width='56' height='56')
     .maininfo
       p {{ UserName }}
-      p chatId: {{ UserName }}
+      p chatId: {{ UserId }}
     .moreinfo
       img.qrcode(src='/image/owner/qrcode.svg' width='20' height='20')
       img.more(src='/image/owner/more.svg' width='20' height='20')
 
-  mt-cell.config(title='设置' @click='')
+  mt-cell.config(title='设置' @click.native='jumpRoute')
     img(slot='icon' src='/image/owner/setting.svg' width='20' height='20')
     img.more(src='/image/owner/more.svg' width='20' height='20')
     

@@ -11,9 +11,9 @@ import Vue from 'Vue'
 
 export default class App extends Vue {
   private tablist: Array<lp.Tabbar> = [
-    { id: 'message', title: '消息', imgSrc: 'active-message.svg' },
-    { id: 'contacts', title: '联系人', imgSrc: 'contacts.svg' },
-    { id: 'owner', title: '我', imgSrc: 'owner.svg' }
+    { name: 'message', title: '消息', imgSrc: 'active-message.svg' },
+    { name: 'contacts', title: '联系人', imgSrc: 'contacts.svg' },
+    { name: 'owner', title: '我', imgSrc: 'owner.svg' }
   ]
   private selectedTab: any = 'message'
   private selectedHead: object = {
@@ -33,7 +33,7 @@ export default class App extends Vue {
   watchSelectTab(val: string) {
     this.tablist.forEach((tab) => {
       let src = tab.imgSrc, prefix = 'active-'
-       tab.id === val ? (src.indexOf(prefix) === -1) && (tab.imgSrc = prefix + src) : (src.indexOf(prefix) !== -1) && (tab.imgSrc = src.replace(prefix,''))
+       tab.name === val ? (src.indexOf(prefix) === -1) && (tab.imgSrc = prefix + src) : (src.indexOf(prefix) !== -1) && (tab.imgSrc = src.replace(prefix,''))
     })
   }
 

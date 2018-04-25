@@ -2,11 +2,11 @@
   mt-header(fixed :title='selectedHead[selectedTab]')
     mt-button(icon='search' slot='right')
   mt-tabbar(fixed v-model='selectedTab')
-    mt-tab-item(v-for='item in tablist' :id='item.id' :key='item.id' :to='item.id')
+    mt-tab-item(v-for='item in tablist' :id='item.name' :key='item.name' :to='item.name')
       img(slot='icon' :src='getImgSrc(item.imgSrc)')
       span {{ item.title }}
       div.router-link
-        router-link(:to='item.id')
+        router-link(:to='item')
   keep-alive
     transition(name='fade')
       router-view

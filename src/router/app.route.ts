@@ -4,17 +4,17 @@ import Owner from '@/pages/Owner/Owner.vue'
 
 const appRoutes: Array<lp.RouteConfig> = [
   {
-    path: '/message',
+    path: 'message',
     name: 'message',
     component: Message
   },
   {
-    path: '/contacts',
+    path: 'contacts',
     name: 'contacts',
     component: Contacts
   },
   {
-    path: '/owner',
+    path: 'owner',
     name: 'owner',
     component: Owner
   }

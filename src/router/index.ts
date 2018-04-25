@@ -9,11 +9,15 @@ Vue.use(Router)
 const routes: Array<lp.RouteConfig> = [
   {
     path: '/',
-    name: 'app',
-    component: App,
+    name: 'main',
     redirect: {
       name: 'message'
-    },
+    }
+  },
+  {
+    path: '/app',
+    name: 'app',
+    component: App,
     children: [
       ...AppRoute
     ]
@@ -25,6 +29,22 @@ const routes: Array<lp.RouteConfig> = [
   }
 ]
 
-export default new Router({
+const router = new Router({
   routes
 })
+
+// router.beforeEach((to, from, next) => {
+//   console.log('beforeEach', to, from)
+//   next()
+// })
+
+// router.beforeResolve((to, from, next) => {
+//   console.log('beforeResolve', to, from)
+//   next()
+// })
+
+// router.afterEach((to, from) => {
+//   console.log('afterEach', to, from)
+// })
+
+export default router

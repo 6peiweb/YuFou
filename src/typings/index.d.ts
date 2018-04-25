@@ -13,10 +13,13 @@ declare namespace lp {
 
   export interface RouteConfig {
     path: string;
-    name: string;
-    component: any;
+    name?: string;
+    component?: any;
     redirect?: Object;
     children?: Array<RouteConfig>;
+    beforeEnter?: (to: RouteConfig, form: RouteConfig, next: any) => void;
+    beforeRouteUpdate?: (to: RouteConfig, form: RouteConfig, next: any) => void;
+    beforeRouteLeave?: (to: RouteConfig, form: RouteConfig, next: any) => void;
   }
   export interface ILib {
     http: any;
@@ -24,7 +27,7 @@ declare namespace lp {
   }
 
   export interface Tabbar {
-    id: string;
+    name: string;
     title: string;
     imgSrc: string;
   }

@@ -6,11 +6,6 @@ import Vue from 'Vue'
 })
 
 export default class Setting extends Vue {
-  private tablist: Array<lp.Tabbar> = [
-    { id: 'message', title: '消息', imgSrc: 'active-message.svg' },
-    { id: 'address', title: '联系人', imgSrc: 'address.svg' },
-    { id: 'setting', title: '设置', imgSrc: 'setting.svg' },
-  ];
   private selectedTab: string = 'message';
   private selectedHead: object = {
     message: '消息',

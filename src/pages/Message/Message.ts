@@ -32,6 +32,10 @@ export default class Message extends Vue {
   ]
   private items: Array<object> = [];
  
+  constructor() {
+    super();
+  }
+
   created() {
     for(let i = 0; i < 100; i ++) {
       this.items.push({
