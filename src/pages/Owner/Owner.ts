@@ -1,5 +1,5 @@
 import Component from 'vue-class-component'
-import Vue from 'Vue'
+import Vue from 'vue'
 
 @Component({
   name: 'owner'

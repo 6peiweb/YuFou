@@ -1,8 +1,8 @@
 import Component from 'vue-class-component'
-import Vue from 'Vue'
+import Vue from 'vue'
 
 @Component({
-  name: 'contacts',
+  name: 'contacts'
 })
 
 export default class Contacts extends Vue {
