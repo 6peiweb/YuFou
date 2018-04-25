@@ -1,11 +1,14 @@
-div.setting
-  mt-cell.userinfo
-    img.portrait(src='@@/image/wuchat.png' width='56' height='56')
-    .moreinfo
-      img.qrcode(src='/image/setting/qrcode.svg' width='20' height='20')
-      img.more(src='/image/setting/more.svg' width='20' height='20')
-
-  mt-cell.config(title='设置')
-    img(slot='icon' src='/image/setting/config.svg' width='20' height='20')
-    img.more(src='/image/setting/more.svg' width='20' height='20')
-    
+div.Setting
+  mt-index-list
+    mt-index-section(index='A')
+      mt-cell(title='Aaron')
+      mt-cell(title='Alden')
+      mt-cell(title='Austin')
+    mt-index-section(index='B')
+      mt-cell(title='Baldwin')
+      mt-cell(title='Braden')
+      mt-cell(title='Bule')
+    mt-index-section(index='Z')
+      mt-cell(title='Zack')
+      mt-cell(title='Zane')
+      mt-cell(title='Austin')

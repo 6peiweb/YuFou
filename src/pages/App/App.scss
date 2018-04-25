@@ -41,16 +41,9 @@ $background: #f3f3f3;
 
   }
 
-  .message, .contacts, .setting {
+  .message, .contacts, .owner {
     @include position(50px, 0, 55px, 0);
     background: $background;
-  }
-
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-  }
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
   }
 
 }

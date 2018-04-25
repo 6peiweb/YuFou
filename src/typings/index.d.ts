@@ -16,6 +16,7 @@ declare namespace lp {
     name: string;
     component: any;
     redirect?: Object;
+    children?: Array<RouteConfig>;
   }
   export interface ILib {
     http: any;

@@ -1,0 +1,14 @@
+div.owner
+  mt-cell.userinfo
+    img.portrait(src='@@/image/wuchat.png' width='56' height='56')
+    .maininfo
+      p {{ UserName }}
+      p chatId: {{ UserName }}
+    .moreinfo
+      img.qrcode(src='/image/owner/qrcode.svg' width='20' height='20')
+      img.more(src='/image/owner/more.svg' width='20' height='20')
+
+  mt-cell.config(title='设置' @click='')
+    img(slot='icon' src='/image/owner/setting.svg' width='20' height='20')
+    img.more(src='/image/owner/more.svg' width='20' height='20')
+    

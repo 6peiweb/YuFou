@@ -1,34 +1,15 @@
-$tabbar: #fafafa;
-$background: #f3f3f3;
-$side: 0.75em;
+.adsad {
 
-@mixin position($top) {
-  position: absolute;
-  top: $top;
-}
+  .mint-indexlist {
 
-.setting {
-  background: $tabbar;
+    // .mint-indexlist-content {
+    //   margin-right: 0;
+    // }
 
-  .userinfo {
-    height: 5em;
-    margin-top: $side;
-
-    .portrait {
-      @include position($side);
-      left: $side;
-      border: 0.05em solid $background;
-      border-radius: 0.2em;
+    .mint-indexlist-nav {
+      top: -50px;
     }
 
-    .moreinfo {
-      @include position(2.5 * $side);
-      right: $side;
-    }
-  }
-
-  .config {
-    margin-top: $side;
   }
 
 }

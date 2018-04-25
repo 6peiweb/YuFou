@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import App from '@/pages/main/App.vue'
-import Message from '@/pages/Message/Message.vue'
-import Contacts from '@/pages/Contacts/Contacts.vue'
+import App from '@/pages/App/App.vue'
+import AppRoute from './app.route'
 import Setting from '@/pages/Setting/Setting.vue'
 
 Vue.use(Router)
@@ -14,17 +13,10 @@ const routes: Array<lp.RouteConfig> = [
     component: App,
     redirect: {
       name: 'message'
-    }
-  },
-  {
-    path: '/message',
-    name: 'message',
-    component: Message
-  },
-  {
-    path: '/contacts',
-    name: 'contacts',
-    component: Contacts
+    },
+    children: [
+      ...AppRoute
+    ]
   },
   {
     path: '/setting',

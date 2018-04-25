@@ -1,0 +1,45 @@
+$tabbar: #fafafa;
+$background: #f3f3f3;
+$font: #2c3e50;
+$side: 0.75em;
+
+@mixin position($top) {
+  position: absolute;
+  top: $top;
+}
+
+.owner {
+  background: $tabbar;
+
+  .userinfo {
+    height: 5em;
+    margin-top: $side;
+
+    .portrait {
+      @include position($side);
+      left: $side;
+      border: 0.05em solid $background;
+      border-radius: 0.2em;
+    }
+
+    .maininfo {
+      @include position(1.8 * $side);
+      left: 7 * $side;
+      color: $font;
+      p {
+        margin-top: 0.2 * $side; 
+        font-weight: 500;
+      }
+    }
+
+    .moreinfo {
+      @include position(2.5 * $side);
+      right: $side;
+    }
+  }
+
+  .config {
+    margin-top: $side;
+  }
+
+}

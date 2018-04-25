@@ -13,13 +13,13 @@ export default class App extends Vue {
   private tablist: Array<lp.Tabbar> = [
     { id: 'message', title: '消息', imgSrc: 'active-message.svg' },
     { id: 'contacts', title: '联系人', imgSrc: 'contacts.svg' },
-    { id: 'setting', title: '设置', imgSrc: 'setting.svg' }
+    { id: 'owner', title: '我', imgSrc: 'owner.svg' }
   ]
   private selectedTab: any = 'message'
   private selectedHead: object = {
     message: '消息',
     contacts: '联系人',
-    setting: '设置'
+    owner: '我'
   }
 
   created() {
