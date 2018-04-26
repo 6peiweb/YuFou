@@ -27,7 +27,7 @@ declare namespace lp {
   }
 
   export interface ILib {
-    http: Object;
+    http: any;
     md5: Object;
   }
 

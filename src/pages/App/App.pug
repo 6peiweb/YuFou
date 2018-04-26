@@ -7,6 +7,6 @@
       span {{ item.title }}
       div.router-link
         router-link(:to='item')
-  keep-alive
-    transition(name='fade')
+  transition(:name='animation')
+    keep-alive
       router-view

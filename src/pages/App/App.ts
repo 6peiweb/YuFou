@@ -21,6 +21,7 @@ export default class App extends Vue {
     contacts: '联系人',
     owner: '我'
   }
+  public animation: string = 'fade'
 
   created() {
     this.selectedTab = this.$route.name

@@ -2,7 +2,7 @@ import Message from '@/pages/Message/Message.vue'
 import Contacts from '@/pages/Contacts/Contacts.vue'
 import Owner from '@/pages/Owner/Owner.vue'
 
-const appRouter: Array<lp.RouteConfig> = [
+const homeRouter: Array<lp.RouteConfig> = [
   {
     path: 'message',
     name: 'message',
@@ -20,4 +20,4 @@ const appRouter: Array<lp.RouteConfig> = [
   }
 ]
 
-export default appRouter
+export default homeRouter
