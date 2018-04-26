@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from '@/pages/App/App.vue'
-import AppRoute from './app.route'
+import { appRouter } from './modules'
 import Setting from '@/pages/Setting/Setting.vue'
 
 Vue.use(Router)
@@ -19,7 +19,7 @@ const routes: Array<lp.RouteConfig> = [
     name: 'app',
     component: App,
     children: [
-      ...AppRoute
+      ...appRouter
     ]
   },
   {

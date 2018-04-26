@@ -37,9 +37,8 @@ export default class App extends Vue {
     })
   }
 
-  watchRoute(to: any, from: any) {
-    // console.log(to);
-    // console.log(from);
+  watchRoute(newRoute: lp.RouteConfig) {
+    this.selectedTab = newRoute.name
   }
 
 }

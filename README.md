@@ -1,8 +1,14 @@
 # WuChat
 
+# [1.0.7] - [2018-04-26 20:45] liupei
+1. 引入Vuex
+2. VueRoute分层
+3. Setting模块开发
+4. 解决Bug：Mac文件系统不区分大小写会复制产生临时文件
+
 # [1.0.6] - [2018-04-23 22:41] liupei
 1. 引入UI框架Vint-ui
-2. App组件重新开发，Message、Contracts、Setting组件开发
+2. App组件重新开发，Message、Contracts、Owner模块开发
 3. 图片从本地打包部署到服务器静态文件，优化编译过程
 
 # [1.0.5] - [2018-04-22 22:25] liupei

@@ -10,9 +10,7 @@ export default class Owner extends Vue {
   private UserId: string = 'shitou'
   
   jumpRoute() {
-    // console.log(this.$router)
-    this.$router.push({name: 'setting'})
-    // this.$router.go(-1)
+    this.$store.dispatch('increment', 'liupei')
   }
-  
+   
 }

@@ -2,11 +2,18 @@ import Component from 'vue-class-component'
 import Vue from 'vue'
 
 @Component({
-  name: 'message'
+  name: 'message',
+  // beforeRouteLeave (to, from , next) {
+  //   const answer = window.confirm('Do you really want to leave? you have unsaved changes!')
+  //   if (answer) {
+  //     next()
+  //   } else {
+  //     next(false)
+  //   }
+  // }
 })
 
 export default class Message extends Vue {
-  private selectedTab: string = 'message'
   private buttongroup: Array<object> = [
     {
       content: '置顶',
@@ -30,11 +37,7 @@ export default class Message extends Vue {
       }
     }
   ]
-  private items: Array<object> = [];
- 
-  constructor() {
-    super();
-  }
+  private items: Array<object> = []
 
   created() {
     for(let i = 0; i < 100; i ++) {
