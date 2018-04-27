@@ -1,7 +1,8 @@
 # WuChat
 
 # [1.0.8] - [2018-04-27 18:31] liupei
-1. SQL表创建，一共九个表(src: server/sequelize/sql/WuChat.sql)
+1. 功能表结构设计
+2. SQL表文件创建，一共九个表(src: server/sequelize/sql/WuChat.sql)
 
 # [1.0.7] - [2018-04-26 20:45] liupei
 1. 引入Vuex
