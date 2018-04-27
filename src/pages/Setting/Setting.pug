@@ -1,3 +1,4 @@
-div.setting
-  mt-header(fixed :title='selectedHead[selectedTab]')
-    mt-button(icon='search' slot='right')
+div#setting
+  mt-header(fixed title='设置')
+    router-link(to="home/owner" slot='left') 
+      mt-button(icon='back') 我

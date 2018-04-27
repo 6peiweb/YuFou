@@ -1,3 +1,3 @@
-import appRouter from './app'
+import homeRouter from './home'
 
-export { appRouter }
+export { homeRouter }

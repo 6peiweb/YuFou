@@ -1,5 +1,5 @@
 <template lang="pug">
-  div#main
+  div#app
     transition(name='fade')
       keep-alive
         router-view 
@@ -7,6 +7,6 @@
 
 <script>
 export default {
-  name: 'main'
+  name: 'app'
 }
 </script>

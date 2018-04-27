@@ -10,7 +10,7 @@ const webpackMerge = require('webpack-merge');
 const webpackCommonConfig = require('./webpack.config');
 
 module.exports = webpackMerge(webpackCommonConfig, {
-    devServer: {
+  devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     compress: true,
     port: 4000,

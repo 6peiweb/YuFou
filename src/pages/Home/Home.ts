@@ -2,14 +2,14 @@ import Component from 'vue-class-component'
 import Vue from 'vue'
 
 @Component({
-  name: 'app',
+  name: 'home',
   watch: {
     selectedTab: 'watchSelectTab',
     $route: 'watchRoute'
   }
 })
 
-export default class App extends Vue {
+export default class Home extends Vue {
   private tablist: Array<lp.Tabbar> = [
     { name: 'message', title: '消息', imgSrc: 'active-message.svg' },
     { name: 'contacts', title: '联系人', imgSrc: 'contacts.svg' },

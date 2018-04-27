@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import App from '@/pages/App/App.vue'
-import { appRouter } from './modules'
+import Home from '@/pages/Home/Home.vue'
+import { homeRouter } from './modules'
 import Setting from '@/pages/Setting/Setting.vue'
 
 Vue.use(Router)
@@ -9,17 +9,17 @@ Vue.use(Router)
 const routes: Array<lp.RouteConfig> = [
   {
     path: '/',
-    name: 'main',
+    name: 'app',
     redirect: {
       name: 'message'
     }
   },
   {
-    path: '/app',
-    name: 'app',
-    component: App,
+    path: '/home',
+    name: 'home',
+    component: Home,
     children: [
-      ...appRouter
+      ...homeRouter
     ]
   },
   {

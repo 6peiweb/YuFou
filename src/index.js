@@ -12,7 +12,7 @@ import '@@/css/mint-ui-fix.css'
 Vue.use(Mint);
 
 const vm = new Vue({
-  el: '#main',
+  el: '#app',
   router,
   store,
   template: '<App/>',
