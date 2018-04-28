@@ -1,17 +1,13 @@
-const Sequelize = require('sequelize');
-const DBConfig = require('./config');
-const sequelize = new Sequelize('kings', 'root', 'lp19970127', DBConfig);
+const User = require('./module/user');
+const User_State = require('./module/user_state');
+const User_Group = require('./module/user_group');
+const User_FriendPolicy = require('./module/user_friendpolicy');
+const User_GroupMessage = require('./module/user_groupmessage');
 
-const User = require('./module/login_users')(sequelize);
+const Friend = require('./module/friend');
+const Friend_Group = require('./module/friend_group');
 
-// User
-//   .create({username: 'Liu ya123g', password: '女', mobilephone: '17609781231'})
-//   .then((user) => {
-//     console.log(user);
-//     // console.log(user.get('password'));
-//     // console.log(user.get('mobilephone'));
-//   })
-//   .catch((err) => console.log(err));
+const Message = require('./module/message');
+const Message_Type = require('./module/message_type');
 
-
-module.exports = { User };
+module.exports = { User, User_State, User_Group, User_FriendPolicy, User_GroupMessage, Friend, Friend_Group, Message, Message_Type };
