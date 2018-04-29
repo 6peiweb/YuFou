@@ -11,7 +11,7 @@
 # import mysql tables
 CREATE DATABASE WuChat;
 USE WuChat;
-SOURCE ./server/sequelize/sql/WuChat.sql;
+SOURCE ./server/sequelize/sql/WuChat_2018-04-27.sql;
 
 # install module dependencies
 npm install
