@@ -11,7 +11,7 @@ import '@@/css/mint-ui-fix.css'
 
 Vue.use(Mint);
 
-const vm = new Vue({
+new Vue({
   el: '#app',
   router,
   store,
