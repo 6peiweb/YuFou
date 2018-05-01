@@ -15,8 +15,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const app = express();
 const server = http.createServer(app);
 const compiler = webpack(webpackDevConfig);
-var ip = os.networkInterfaces().en0[1].address;
-ip = 'localhost';
+const ip = (os.networkInterfaces().en0 || os.networkInterfaces().WLAN)[1].address;
 const port = 4000;
 
 reload(app);
