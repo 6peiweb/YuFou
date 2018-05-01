@@ -10,6 +10,6 @@ const DBConfig = {
   }
 };
 
-const sequelize = new Sequelize('WuChat', 'root', 'lp19970127', DBConfig);
+const sequelize = new Sequelize('WuChat', 'root', 'root', DBConfig);
 
 module.exports = sequelize;
