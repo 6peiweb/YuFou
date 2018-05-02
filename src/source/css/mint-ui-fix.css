@@ -14,11 +14,11 @@ header.mint-header {
 
 /* slide-right路由动画 */
 .slide-right-enter-active, .slide-right-leave-active {
-  transition: all 0.5s;
+  transition: all 0.2s ease;
 }
 .slide-right-enter, .slide-right-leave-to {
-  margin-left: 100%;
+  transform: translateX(100%);
 }
 .slide-right-enter-to,.slide-right-leave {
-  margin-left: 0;
+  transform: translateX(0);
 }

@@ -43,8 +43,8 @@ const router = new Router({
 //   next()
 // })
 
-router.afterEach((to, from) => {
-  to.name === 'setting' && router.app.$store.dispatch('update_topAnimation', 'slide-right')
-})
+// router.afterEach((to, from) => {
+//   to.name === 'setting' && router.app.$store.dispatch('update_topAnimation', 'slide-right')
+// })
 
 export default router

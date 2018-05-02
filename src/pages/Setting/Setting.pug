@@ -3,4 +3,8 @@ div#setting
     router-link(to="home/owner" slot='left') 
       mt-button(icon='back') 我
   
-  
+  mt-cell.security(title='账号与安全' @click.native='jumpRoute')
+
+  mt-cell.logout(title='退出登录' @click.native='logoutConfirm')
+
+  mt-actionsheet(:actions='actions' v-model='sheetVisible')

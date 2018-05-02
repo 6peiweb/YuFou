@@ -6,5 +6,16 @@ import Vue from 'vue'
 })
 
 export default class Setting extends Vue {
-  
+  private sheetVisible: boolean = false
+  private actions = [
+    { name: '退出登录', method: this.logout }
+  ]
+
+  logoutConfirm() {
+    this.sheetVisible = true
+  }
+
+  logout() {
+    this.$router.push({name: 'owner'})
+  }
 }

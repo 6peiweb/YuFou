@@ -8,6 +8,15 @@
 
 #setting {
   @include position(0, 0, 0, 0);
-  background: #8d8468;
+  background: #f3f3f3;
   z-index: 2;
+
+  .security {
+    margin-top: 60px;
+  }
+
+  .logout {
+    margin-top: 10px;
+  }
+
 }
