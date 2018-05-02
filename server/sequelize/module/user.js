@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/connection');
-const User_State = require('./user_state');
-const User_FriendPolicy = require('./user_friendpolicy');
+// const User_State = require('./user_state');
+// const User_FriendPolicy = require('./user_friendpolicy');
 
 const User = sequelize.define('User', {
   'U_ID': { 
@@ -52,19 +52,19 @@ const User = sequelize.define('User', {
   },
   'U_UserStateID': {
     type: Sequelize.INTEGER(11),
-    references: {
-      model: User_State,
-      key: 'US_ID'
-    },
+    // references: {
+    //   model: User_State,
+    //   key: 'US_ID'
+    // },
     defaultValue: 1,
     comment: '用户状态ID'
   },
   'U_FriendPolicyID': {
     type: Sequelize.INTEGER(11),
-    references: {
-      model: User_FriendPolicy,
-      key: 'UFP_ID'
-    },
+    // references: {
+    //   model: User_FriendPolicy,
+    //   key: 'UFP_ID'
+    // },
     defaultValue: 1,
     comment: '好友策略ID'
   },

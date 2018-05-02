@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/connection');
 
-const User_State = sequelize.define('User_State', {
+const UserState = sequelize.define('User_State', {
   'US_ID': {
     type: Sequelize.INTEGER(11),
     autoIncrement: true,
@@ -22,4 +22,4 @@ const User_State = sequelize.define('User_State', {
   comment: '用户状态表'
 });
 
-module.exports = User_State;
+module.exports = UserState;

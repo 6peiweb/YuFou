@@ -13,19 +13,19 @@ const Message = sequelize.define('Message', {
   'M_FromUserID': {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: User,
-      key: 'U_ID'
-    },
+    // references: {
+    //   model: User,
+    //   key: 'U_ID'
+    // },
     comment: '发送者ID'
   },
   'M_ToUserID': {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: User,
-      key: 'U_ID'
-    },
+    // references: {
+    //   model: User,
+    //   key: 'U_ID'
+    // },
     comment: '接收者ID'
   },
   'M_Content': {
@@ -47,10 +47,10 @@ const Message = sequelize.define('Message', {
   'M_MessageTypeID': {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: Message_Type,
-      key: 'MT_ID'
-    },
+    // references: {
+    //   model: Message_Type,
+    //   key: 'MT_ID'
+    // },
     comment: '消息类型ID'
   },
   createdAt: Sequelize.DATE,

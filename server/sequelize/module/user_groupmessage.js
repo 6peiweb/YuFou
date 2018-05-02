@@ -4,7 +4,7 @@ const User = require('./user');
 const User_Group = require('./user_group');
 const Message_Type = require('./message_type');
 
-const User_GroupMessage = sequelize.define('User_GroupMessage', {
+const UserGroupMessage = sequelize.define('User_GroupMessage', {
   'UGM_ID': {
     type: Sequelize.INTEGER(11),
     autoIncrement: true,
@@ -14,19 +14,19 @@ const User_GroupMessage = sequelize.define('User_GroupMessage', {
   'UGM_UserGroupID': {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: User_Group,
-      key: 'UG_ID'
-    },
+    // references: {
+    //   model: User_Group,
+    //   key: 'UG_ID'
+    // },
     comment: '群ID'
   },
   'UGM_FromUserID': {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: User,
-      key: 'U_ID'
-    },
+    // references: {
+    //   model: User,
+    //   key: 'U_ID'
+    // },
     comment: '发送者ID'
   },
   'UGM_Content': {
@@ -48,10 +48,10 @@ const User_GroupMessage = sequelize.define('User_GroupMessage', {
   'UGM_MessageTypeID': {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: Message_Type,
-      key: 'MT_ID'
-    },
+    // references: {
+    //   model: Message_Type,
+    //   key: 'MT_ID'
+    // },
     comment: '消息类型ID'
   },
   createdAt: Sequelize.DATE,
@@ -62,4 +62,4 @@ const User_GroupMessage = sequelize.define('User_GroupMessage', {
   comment: '用户群组消息记录表'
 });
 
-module.exports = User_GroupMessage;
+module.exports = UserGroupMessage;

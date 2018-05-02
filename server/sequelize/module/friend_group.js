@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const sequelize = require('../config/connection');
 const User = require('./user');
 
-const Friend_Group = sequelize.define('Friend_Group', {
+const FriendGroup = sequelize.define('Friend_Group', {
   'FG_ID': {
     type: Sequelize.INTEGER(11),
     autoIncrement: true,
@@ -18,10 +18,10 @@ const Friend_Group = sequelize.define('Friend_Group', {
   'FG_UserID': {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: User,
-      key: 'U_ID'
-    },
+    // references: {
+    //   model: User,
+    //   key: 'U_ID'
+    // },
     comment: '用户ID'
   },
   createdAt: Sequelize.DATE,
@@ -32,4 +32,4 @@ const Friend_Group = sequelize.define('Friend_Group', {
   comment: '好友分组表'
 });
 
-module.exports = Friend_Group;
+module.exports = FriendGroup;

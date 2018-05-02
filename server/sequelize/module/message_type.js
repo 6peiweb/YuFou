@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/connection');
 
-const Message_Type = sequelize.define('Message_Type', {
+const MessageType = sequelize.define('Message_Type', {
   'MT_ID': {
     type: Sequelize.INTEGER(11),
     autoIncrement: true,
@@ -22,4 +22,4 @@ const Message_Type = sequelize.define('Message_Type', {
   comment: '消息类型表'
 });
 
-module.exports = Message_Type;
+module.exports = MessageType;

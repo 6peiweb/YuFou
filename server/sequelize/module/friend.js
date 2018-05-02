@@ -13,19 +13,19 @@ const Friend = sequelize.define('Friend', {
   'F_FriendID': {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: User,
-      key: 'U_ID'
-    },
+    // references: {
+    //   model: User,
+    //   key: 'U_ID'
+    // },
     comment: '好友ID'
   },
   'F_UserID': {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: User,
-      key: 'U_ID'
-    },
+    // references: {
+    //   model: User,
+    //   key: 'U_ID'
+    // },
     comment: '用户ID'
   },
   'F_Name': {
@@ -36,10 +36,10 @@ const Friend = sequelize.define('Friend', {
   'F_FriendGroupID': {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: Friend_Group,
-      key: 'FG_ID'
-    },
+    // references: {
+    //   model: Friend_Group,
+    //   key: 'FG_ID'
+    // },
     comment: '好友所属组ID'
   },
   createdAt: Sequelize.DATE,

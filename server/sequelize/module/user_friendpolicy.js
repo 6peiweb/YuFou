@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/connection');
 
-const User_FriendPolicy = sequelize.define('User_FriendPolicy', {
+const UserFriendPolicy = sequelize.define('User_FriendPolicy', {
   'UFP_ID': {
     type: Sequelize.INTEGER(11),
     autoIncrement: true,
@@ -22,4 +22,4 @@ const User_FriendPolicy = sequelize.define('User_FriendPolicy', {
   comment: '用户好友策略表'
 });
 
-module.exports = User_FriendPolicy;
+module.exports = UserFriendPolicy;

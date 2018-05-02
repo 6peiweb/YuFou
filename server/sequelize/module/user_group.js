@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const sequelize = require('../config/connection');
 const User = require('./user');
 
-const User_Group = sequelize.define('User_Group', {
+const UserGroup = sequelize.define('User_Group', {
   'UG_ID': {
     type: Sequelize.INTEGER(11),
     autoIncrement: true,
@@ -17,10 +17,10 @@ const User_Group = sequelize.define('User_Group', {
   'UG_AdminID': {
     type: Sequelize.INTEGER(11),
     allowNull: false,
-    references: {
-      model: User,
-      key: 'U_ID'
-    },
+    // references: {
+    //   model: User,
+    //   key: 'U_ID'
+    // },
     comment: '群主ID'
   },
   'UG_Icon': {
@@ -46,4 +46,4 @@ const User_Group = sequelize.define('User_Group', {
   comment: '用户群组表'
 });
 
-module.exports = User_Group;
+module.exports = UserGroup;
