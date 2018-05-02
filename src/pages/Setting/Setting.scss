@@ -1,4 +1,13 @@
-#setting {
-  position: relative;
+@mixin position($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
 
+#setting {
+  @include position(0, 0, 0, 0);
+  background: #8d8468;
+  z-index: 2;
 }

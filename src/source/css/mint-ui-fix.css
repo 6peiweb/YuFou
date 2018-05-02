@@ -4,6 +4,7 @@ header.mint-header {
   background: #7b5353;
 }
 
+/* fade路由动画 */
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
@@ -11,9 +12,13 @@ header.mint-header {
   opacity: 0;
 }
 
+/* slide-right路由动画 */
 .slide-right-enter-active, .slide-right-leave-active {
-  transition: right .5s;
+  transition: all 0.5s;
 }
 .slide-right-enter, .slide-right-leave-to {
-  right: -100%;
+  margin-left: 100%;
+}
+.slide-right-enter-to,.slide-right-leave {
+  margin-left: 0;
 }

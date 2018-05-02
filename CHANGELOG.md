@@ -1,5 +1,10 @@
 ## WuChat
 
+# [1.1.1] - [2018-05-02 15:26] liupei
+1. Sequelize表关联查询定义
+2. express API学习
+3. 路由动画编写
+
 # [1.0.9] - [2018-04-28 15:26] liupei
 1. Sequelize定义模块映射Mysql功能表
 

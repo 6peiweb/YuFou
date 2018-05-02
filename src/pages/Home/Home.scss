@@ -1,6 +1,9 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "STKaiti","Weibei SC","Xingkai SC","Hanzipen SC";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 $blackFont: #2c3e50;
@@ -17,9 +20,6 @@ $background: #f3f3f3;
 }
 
 #home {
-  font-family: "STKaiti","Weibei SC","Xingkai SC","Hanzipen SC";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: $blackFont;
   @include position(0, 0, 0, 0);
 
