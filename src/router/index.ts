@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/pages/Home/Home.vue'
 import { homeRouter } from './modules'
 import Setting from '@/pages/Setting/Setting.vue'
+import Login from '@/pages/Login/Login.vue'
 
 Vue.use(Router)
 
@@ -26,6 +27,11 @@ const routes: Array<lp.RouteConfig> = [
     path: '/setting',
     name: 'setting',
     component: Setting
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   }
 ]
 

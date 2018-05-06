@@ -16,6 +16,6 @@ export default class Setting extends Vue {
   }
 
   logout() {
-    this.$router.push({name: 'owner'})
+    this.$router.push({name: 'login'})
   }
 }
