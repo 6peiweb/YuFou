@@ -12,4 +12,5 @@ export default class Login extends Vue {
     validLogin() {
         console.log(this.username)
     }
+    
 }
