@@ -6,7 +6,7 @@
     "strict": true,
     "module": "es2015",
     "moduleResolution": "node",
-    "target": "es5",
+    "target": "es6",
     "noImplicitAny": true,
     "removeComments": true
   },

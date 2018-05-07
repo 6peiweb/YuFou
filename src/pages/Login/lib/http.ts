@@ -1,7 +1,7 @@
 class Http {
 
-    postRegisterInfo (params: lp.UserConfig) {
-        return ILib.http.post('/api/user/register', params)
+    getLoginSystem (params: lp.UserConfig) {
+        return ILib.http.get('/api/user/login', params)
     }
 }
   

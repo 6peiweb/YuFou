@@ -8,10 +8,8 @@ import App from './App.vue'
 import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import '@@/css/mint-ui-fix.css'
-import VerifyCode from '@/components/VerifyCode/VerifyCode.vue'
 
 Vue.use(Mint)
-Vue.component('verify-code', VerifyCode)
 
 new Vue({
   el: '#app',

@@ -1,7 +1,7 @@
 class GVerify {
     constructor(options) {
         this.options = { //默认options参数值
-            id: "", //容器Id
+            idName: "", //容器Id
             canvasId: "verifyCanvas", //canvas的ID
             width: "100", //默认canvas宽度
             height: "30", //默认canvas高度
@@ -14,7 +14,7 @@ class GVerify {
                 this.options[i] = options[i];
             }
         }else{
-            this.options.id = options;
+            this.options.idName = options;
         }
         
         this.options.numArr = "0,1,2,3,4,5,6,7,8,9".split(",");
@@ -24,10 +24,8 @@ class GVerify {
     }
 
     _init () {
-        let con = document.getElementById(this.options.id);
+        let con = document.getElementById(this.options.idName);
         let canvas = document.createElement("canvas");
-        this.options.width = con.offsetWidth > 0 ? con.offsetWidth : "100";
-        this.options.height = con.offsetHeight > 0 ? con.offsetHeight : "30";
         canvas.id = this.options.canvasId;
         canvas.width = this.options.width;
         canvas.height = this.options.height;

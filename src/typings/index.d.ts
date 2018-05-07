@@ -31,6 +31,11 @@ declare namespace lp {
     md5: Object;
   }
 
+  export interface IMint {
+    Indicator: any;
+    MessageBox : any;
+  }
+
   export interface UserConfig {
     username: string;
     password: string;
@@ -46,3 +51,4 @@ declare namespace lp {
 }
 
 declare var ILib: lp.ILib;
+declare var IMint: lp.IMint;

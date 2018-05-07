@@ -22,15 +22,15 @@ const GVerify = require('@@/js/gVerify')
 })
 
 export default class VerifyCode extends Vue {
-    private VCode: string = ''
     private vCodeImage: any = {}
 
     mounted() {
-        this.vCodeImage = new GVerify('imageCode')
-        console.log(this.vCodeImage.options.code)
+        this.vCodeImage = new GVerify(Object.assign(this.$props))
+        this.postVCode()
     }
 
-    validate() {
-        console.log(this.vCodeImage.options.code)
+    postVCode() {
+        this.$emit('getVCode', this.vCodeImage.options.code)
     }
+
 }

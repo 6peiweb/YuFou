@@ -3,6 +3,7 @@
  */
 
 const axios = require('axios')
+const { Indicator, MessageBox } = require('mint-ui')
 
 window['ILib'] = {
   md5: require('md5'),
@@ -10,4 +11,9 @@ window['ILib'] = {
     timeout: 10 * 1000,
     headers: { 'X-Requested-With': 'XMLHttpRequest' }
   })
+}
+
+window['IMint'] = {
+  Indicator,
+  MessageBox
 }
