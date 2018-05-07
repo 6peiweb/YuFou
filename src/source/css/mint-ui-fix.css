@@ -4,6 +4,17 @@ header.mint-header {
   background: #7b5353;
 }
 
+.mint-indicator-wrapper {
+  z-index: 999;
+  opacity: 0.8;
+}
+
+.mint-indicator-mask {
+  z-index: 998;
+  opacity: 0.2;
+  background: #fafafa;
+}
+
 /* fade路由动画 */
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
