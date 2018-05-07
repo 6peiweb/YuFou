@@ -24,22 +24,34 @@ export default class Login extends Vue {
                 text: '登录中...',
                 spinnerType: 'snake'
             })
+            setTimeout(() => {
+                Http.getLoginSystem({
+                    params: {
+                        username: this.username,
+                        password: this.password
+                    }
+                }).then((response: any) => {
+                    if (response.data.data) return this.$router.push({ name: 'message' })
+                    return (this.toast = (<any>this).$toast(`${response.data.message}`))
+                }).finally(() => {
+                    (<any>this.$refs.verifyCode).refreshImage()
+                    IMint.Indicator.close()
+                })
+            }, 1500)
         }
     }
 
     validUserInfo() {
         if (!this.username.trim()) return (this.toast = (<any>this).$toast('用户名不能为空'))
         if (!this.password.trim()) return (this.toast = (<any>this).$toast('请输入密码'))
-        if (!this.ICode.trim()) {
-            return (this.toast = (<any>this).$toast('请输入验证码'))
-        } else {
-            if (this.ICode.trim() !== this.VCode) return (this.toast = (<any>this).$toast('验证码输入错误'))
-        }
+        if (!this.ICode.trim()) return (this.toast = (<any>this).$toast('请输入验证码'))
+        if (this.ICode.trim().toLowerCase() !== this.VCode.toLowerCase()) return (this.toast = (<any>this).$toast('验证码输入错误'))
         return 'Allow To Login'
     }
 
     getVCode(code: string) {
         this.VCode = code
+        console.log('验证码', code)
     }
     
 }

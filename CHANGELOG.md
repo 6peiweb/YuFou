@@ -1,5 +1,11 @@
 ## WuChat
 
+# [1.1.2] - [2018-05-07 21:19] liupei
+1. GVerify模块编写，用于生成canvas验证码
+2. VerifyCode组件开发
+3. Login组件开发
+4. 登录验证接口开发
+
 # [1.1.1] - [2018-05-02 15:26] liupei
 1. Sequelize表关联查询定义
 2. express API学习

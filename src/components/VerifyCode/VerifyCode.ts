@@ -29,6 +29,11 @@ export default class VerifyCode extends Vue {
         this.postVCode()
     }
 
+    refreshImage() {
+        this.vCodeImage.refresh()
+        this.postVCode()
+    }
+
     postVCode() {
         this.$emit('getVCode', this.vCodeImage.options.code)
     }

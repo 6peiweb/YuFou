@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.20)
 # Database: WuChat
-# Generation Time: 2018-04-28 06:51:34 +0000
+# Generation Time: 2018-05-02 12:09:41 +0000
 # ************************************************************
 
 
@@ -55,7 +55,8 @@ VALUES
 	(6,7,1,'猫子备注',4,NULL,NULL),
 	(7,8,1,'猪子备注',4,NULL,NULL),
 	(8,9,1,'龙子备注',4,NULL,NULL),
-	(9,10,1,'羊子备注',4,NULL,NULL);
+	(9,10,1,'羊子备注',4,NULL,NULL),
+	(10,3,2,NULL,1,NULL,NULL);
 
 /*!40000 ALTER TABLE `Friend` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -85,7 +86,8 @@ VALUES
 	(1,'好友',1,NULL,NULL),
 	(2,'家人',1,NULL,NULL),
 	(3,'愁人',1,NULL,NULL),
-	(4,'没人',1,NULL,NULL);
+	(4,'没人',1,NULL,NULL),
+	(5,'好友',2,NULL,NULL);
 
 /*!40000 ALTER TABLE `Friend_Group` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -100,7 +102,6 @@ CREATE TABLE `Message` (
   `M_ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `M_FromUserID` int(11) unsigned NOT NULL COMMENT '发送者ID',
   `M_ToUserID` int(11) unsigned NOT NULL COMMENT '接收者ID',
-  `M_Time` datetime NOT NULL COMMENT '发送时间',
   `M_Content` text NOT NULL COMMENT '消息内容',
   `M_Expires` datetime DEFAULT NULL COMMENT '消息到期时间',
   `M_Status` enum('发送中','发送成功','发送失败') NOT NULL DEFAULT '发送成功' COMMENT '发送状态',
@@ -111,20 +112,21 @@ CREATE TABLE `Message` (
   KEY `M_FromUserID` (`M_FromUserID`),
   KEY `M_ToUserID` (`M_ToUserID`),
   KEY `M_MessageTypeID` (`M_MessageTypeID`),
-  CONSTRAINT `message_ibfk_1` FOREIGN KEY (`M_FromUserID`) REFERENCES `user` (`U_ID`),
-  CONSTRAINT `message_ibfk_2` FOREIGN KEY (`M_ToUserID`) REFERENCES `user` (`U_ID`),
+  CONSTRAINT `message_ibfk_1` FOREIGN KEY (`M_FromUserID`) REFERENCES `User` (`U_ID`),
+  CONSTRAINT `message_ibfk_2` FOREIGN KEY (`M_ToUserID`) REFERENCES `User` (`U_ID`),
   CONSTRAINT `message_ibfk_3` FOREIGN KEY (`M_MessageTypeID`) REFERENCES `Message_Type` (`MT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='消息记录表';
 
 LOCK TABLES `Message` WRITE;
 /*!40000 ALTER TABLE `Message` DISABLE KEYS */;
 
-INSERT INTO `Message` (`M_ID`, `M_FromUserID`, `M_ToUserID`, `M_Time`, `M_Content`, `M_Expires`, `M_Status`, `M_MessageTypeID`, `createdAt`, `updatedAt`)
+INSERT INTO `Message` (`M_ID`, `M_FromUserID`, `M_ToUserID`, `M_Content`, `M_Expires`, `M_Status`, `M_MessageTypeID`, `createdAt`, `updatedAt`)
 VALUES
-	(1,1,2,'2018-04-27 17:13:42','我是1号员工，我是liupei，我在联系上帝',NULL,'发送成功',1,NULL,NULL),
-	(2,2,1,'2018-04-27 17:14:23','我是上帝，我收到了liupei的来信，我要祝福他',NULL,'发送成功',1,NULL,NULL),
-	(3,1,2,'2018-04-27 17:15:02','谢谢上帝的祝福',NULL,'发送成功',1,NULL,NULL),
-	(4,3,1,'2018-04-27 16:23:14','Hello,主人',NULL,'发送成功',1,NULL,NULL);
+	(1,1,2,'我是1号员工，我是liupei，我在联系上帝',NULL,'发送成功',1,NULL,NULL),
+	(2,2,1,'我是上帝，我收到了liupei的来信，我要祝福他',NULL,'发送成功',1,NULL,NULL),
+	(3,1,2,'谢谢上帝的祝福',NULL,'发送成功',1,NULL,NULL),
+	(4,3,1,'Hello,主人',NULL,'发送成功',1,NULL,NULL),
+	(5,3,4,'你就是猴子吧',NULL,'发送成功',1,NULL,NULL);
 
 /*!40000 ALTER TABLE `Message` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -261,7 +263,8 @@ LOCK TABLES `User_Group` WRITE;
 
 INSERT INTO `User_Group` (`UG_ID`, `UG_Name`, `UG_AdminID`, `UG_Icon`, `UG_Notice`, `UG_Intro`, `createdAt`, `updatedAt`)
 VALUES
-	(1,'WuChat第一个群',1,'123','群公告，大家看一下！！！','这是WuChat第一个群，大家在里面好好相处文明说话...',NULL,NULL);
+	(1,'WuChat第一个群',1,'123','群公告，大家看一下！！！','这是WuChat第一个群，大家在里面好好相处文明说话...',NULL,NULL),
+	(2,'火影忍者',2,'qwe','公告','介绍',NULL,NULL);
 
 /*!40000 ALTER TABLE `User_Group` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -276,7 +279,6 @@ CREATE TABLE `User_GroupMessage` (
   `UGM_ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `UGM_UserGroupID` int(11) unsigned NOT NULL DEFAULT '1' COMMENT '群ID',
   `UGM_FromUserID` int(11) unsigned NOT NULL COMMENT '发送者ID',
-  `UGM_Time` datetime NOT NULL COMMENT '发送时间',
   `UGM_Content` text NOT NULL COMMENT '消息内容',
   `UGM_Expries` datetime DEFAULT NULL COMMENT '消息到期时间',
   `UGM_Status` enum('发送中','发送成功','发送失败') NOT NULL DEFAULT '发送成功' COMMENT '发送状态',
@@ -295,11 +297,12 @@ CREATE TABLE `User_GroupMessage` (
 LOCK TABLES `User_GroupMessage` WRITE;
 /*!40000 ALTER TABLE `User_GroupMessage` DISABLE KEYS */;
 
-INSERT INTO `User_GroupMessage` (`UGM_ID`, `UGM_UserGroupID`, `UGM_FromUserID`, `UGM_Time`, `UGM_Content`, `UGM_Expries`, `UGM_Status`, `UGM_MessageTypeID`, `createdAt`, `updatedAt`)
+INSERT INTO `User_GroupMessage` (`UGM_ID`, `UGM_UserGroupID`, `UGM_FromUserID`, `UGM_Content`, `UGM_Expries`, `UGM_Status`, `UGM_MessageTypeID`, `createdAt`, `updatedAt`)
 VALUES
-	(1,1,1,'2017-04-27 17:22:12','我在群里说话了',NULL,'发送成功',1,NULL,NULL),
-	(2,1,2,'2017-04-27 17:23:02','我们看到你说话了',NULL,'发送成功',1,NULL,NULL),
-	(3,1,3,'2017-04-27 17:56:45','是啊，你是第一个说话的人',NULL,'发送成功',1,NULL,NULL);
+	(1,1,1,'我在群里说话了',NULL,'发送成功',1,NULL,NULL),
+	(2,1,2,'我们看到你说话了',NULL,'发送成功',1,NULL,NULL),
+	(3,1,3,'是啊，你是第一个说话的人',NULL,'发送成功',1,NULL,NULL),
+	(4,2,2,'我是群主！！！',NULL,'发送成功',1,NULL,NULL);
 
 /*!40000 ALTER TABLE `User_GroupMessage` ENABLE KEYS */;
 UNLOCK TABLES;
