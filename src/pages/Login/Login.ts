@@ -1,5 +1,6 @@
 import component from 'vue-class-component'
 import Vue from 'vue'
+// import VerifyCode from '@/components/VerifyCode/VerifyCode.vue'
 
 @component({
     name: 'login'
