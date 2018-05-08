@@ -16,6 +16,10 @@ export default class Login extends Vue {
     private VCode: string = ''
     private ICode: string =''
     private toast: any = undefined
+    private sheetVisible: boolean = false
+    private actions = [
+      { name: '注册', method: this.register }
+    ]
 
     loginSystem() {
         this.toast && this.toast.close()
@@ -52,6 +56,14 @@ export default class Login extends Vue {
     getVCode(code: string) {
         this.VCode = code
         console.log('验证码', code)
+    }
+
+    register() {
+        this.$router.push({ name: 'register' })
+    }
+
+    moreOption() {
+        this.sheetVisible = true
     }
     
 }

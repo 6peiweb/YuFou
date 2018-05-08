@@ -1,0 +1,22 @@
+@mixin position($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+#register {
+  @include position(0, 0, 0, 0);
+  background: #f3f3f3;
+  z-index: 2;
+
+  .user {
+      margin-top: 60px;
+  }
+
+  .vCode {
+      margin-top: 10px;
+  }
+
+}

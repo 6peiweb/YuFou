@@ -1,8 +1,11 @@
 #login
     mt-header(fixed title='用户验证中心')
+        mt-button(icon='more' slot="left" @click.native='moreOption')
         mt-button(slot='right' @click.native='loginSystem') 登录
 
     mt-field.user(label='用户名' placeholder='请输入用户名' v-model='username')
     mt-field(label='密码' type='password' placeholder='请输入密码' v-model='password')
     mt-field.vCode(label='验证码'  v-model='ICode')
         verify-code(idName='imageCode' :width='100' :height='30' type='blend' @getVCode='getVCode' ref='verifyCode')
+
+    mt-actionsheet(:actions='actions' v-model='sheetVisible')
