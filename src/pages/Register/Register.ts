@@ -6,14 +6,29 @@ import Vue from 'vue'
 })
 
 export default class Register extends Vue {
-  private active: string = 'animation1'
   private step: number = 1
   private size: number = 100 / 3
+  private tabItem: Array<string> = ['email', 'captcha', 'fillInfo']
   private titleArray: Array<string> = ['第一步', '第二步', '第三步']
   private interval: any = null
+  private email: string = ''
 
   get backRoute() {
     return this.$store.getters.routeInfo.from
+  }
+
+  get active() {
+    return this.tabItem[this.step - 1]
+  }
+
+  set active(val: string) {
+    this.step = this.tabItem.indexOf(val) + 1
+  }
+
+  validEmail() {
+    if(!this.email.trim()) return (<any>this).$toast({ message: '邮箱不能为空', duration: 1500})
+    if(!/.+@.+\..+/.test(this.email.trim())) return (<any>this).$toast({ message: '邮箱格式不正确', duration: 1500})
+    this.increment()
   }
 
   backLogin() {
