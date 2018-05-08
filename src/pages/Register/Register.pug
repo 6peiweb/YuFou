@@ -1,7 +1,28 @@
 #register
-    mt-header(fixed title='注册')
-      mt-button(icon='back' slot='left' @click='backLogin') 返回
+  mt-header(fixed title='注册')
+    mt-button(icon='back' slot='left' @click='backLogin' v-if='!!backRoute') 返回
+  .nav
+    .title {{ titleArray[step - 1] }}
+    mt-progress.lack(:value='size' :bar-height='5' v-if='size < 100')
+    mt-progress(:value='size' :bar-height='5' v-if='size >= 100')
+    mt-button(@click='increment') 增长
 
-    mt-field.user(label='用户名' placeholder='请输入用户名')
-    mt-field(label='密码' type='password' placeholder='请输入密码')
-    mt-field.vCode(label='验证码' )
+
+    //- mt-button(size="small" @click.native.prevent="active = 'animation1'") tab 1
+    //- mt-button(size="small" @click.native.prevent="active = 'animation2'") tab 2
+    //- mt-button(size="small" @click.native.prevent="active = 'animation3'") tab 3
+  .page-tab-container
+    mt-tab-container(v-model='active' swipeable)
+      mt-tab-container-item(id='animation1')
+        mt-field.user(label='用户名' placeholder='请输入用户名')
+        mt-field(label='密码' type='password' placeholder='请输入密码')
+        mt-field.vCode(label='验证码' )
+      mt-tab-container-item(id='animation2')
+        mt-field.user(label='用户名' placeholder='请输入用户名')
+        mt-field(label='密码' type='password' placeholder='请输入密码')
+        mt-field.vCode(label='验证码' )
+      mt-tab-container-item(id='animation3')
+        mt-field.user(label='用户名' placeholder='请输入用户名')
+        mt-field(label='密码' type='password' placeholder='请输入密码')
+        mt-field.vCode(label='验证码' )
+

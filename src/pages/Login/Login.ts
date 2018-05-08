@@ -35,7 +35,7 @@ export default class Login extends Vue {
                         password: this.password
                     }
                 }).then((response: any) => {
-                    if (response.data.data) return this.$router.push({ name: 'message' })
+                    if (response.data.data) return this.$router.push((<lp.RawLocation>{ name: 'message' }))
                     return (this.toast = (<any>this).$toast(`${response.data.message}`))
                 }).finally(() => {
                     (<any>this.$refs.verifyCode).refreshImage()
@@ -59,7 +59,7 @@ export default class Login extends Vue {
     }
 
     register() {
-        this.$router.push({ name: 'register' })
+        this.$router.push((<lp.RawLocation>{ name: 'register' }))
     }
 
     moreOption() {

@@ -3,6 +3,7 @@ declare module '*.vue' {
   export default Vue;
 }
 
+
 declare namespace lp {
 
   export interface RouteConfig {
@@ -13,6 +14,13 @@ declare namespace lp {
     alias?: string | Array<string>;
     children?: Array<RouteConfig>;
     beforeEnter?: (to: RouteConfig, form: RouteConfig, next: Function) => void;
+    meta?: any;
+  }
+
+  export interface RawLocation {
+    name: string;
+    path?: string;
+    redirect?: string | Object;
     meta?: any;
   }
 

@@ -1,15 +1,23 @@
-@mixin position($top, $right, $bottom, $left) {
+@mixin position($top, $right, $bottom) {
   position: absolute;
   top: $top;
   right: $right;
   bottom: $bottom;
-  left: $left;
 }
 
+$coffee: #7b5353;
+$background: #f3f3f3;
+
 #register {
-  @include position(0, 0, 0, 0);
-  background: #f3f3f3;
+  @include position(0, 0, 0);
+  left: 0;
+  background: $background;
   z-index: 2;
+
+  .title {
+    margin-left: 1em;
+    font-size: 16px;
+  }
 
   .user {
       margin-top: 60px;
@@ -17,6 +25,39 @@
 
   .vCode {
       margin-top: 10px;
+  }
+
+  .item {  
+    display: inline-block;  
+  }  
+  
+  .nav {  
+    margin-top: 70px;
+  }
+
+  .mt-progress {
+
+    .mt-progress-progress {
+      background: $coffee;
+    }
+
+  }
+
+  .lack {
+
+    .mt-progress-progress {
+  
+      &::after {
+        content: '';
+        display: block;
+        @include position(-2.5px, -30px, -2.5px);
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 30px solid $coffee;
+      }
+  
+    }
+    
   }
 
 }

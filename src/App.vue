@@ -1,8 +1,7 @@
 <template lang="pug">
   div#app
     transition(:name='animation')
-      keep-alive
-        router-view 
+      router-view 
 </template>
 
 <script>
