@@ -1,4 +1,4 @@
-## WuChat
+## 与否App
 
 # [1.1.2] - [2018-05-07 21:19] liupei
 1. GVerify模块编写，用于生成canvas验证码

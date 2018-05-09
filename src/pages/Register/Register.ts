@@ -1,5 +1,6 @@
 import Component from 'vue-class-component'
 import Vue from 'vue'
+import Http from './lib/http'
 
 @Component({
   name: 'register'
@@ -29,6 +30,7 @@ export default class Register extends Vue {
     if(!this.email.trim()) return (<any>this).$toast({ message: '邮箱不能为空', duration: 1500})
     if(!/.+@.+\..+/.test(this.email.trim())) return (<any>this).$toast({ message: '邮箱格式不正确', duration: 1500})
     this.increment()
+    Http.postValidEmail({ email: this.email })
   }
 
   backLogin() {

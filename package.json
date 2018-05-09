@@ -1,5 +1,5 @@
 {
-  "name": "wuchat",
+  "name": "yufou",
   "version": "1.1.2",
   "description": "聊天Webapp",
   "keywords": [
@@ -16,7 +16,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/6peiweb/WuChat"
+    "url": "git+https://github.com/6peiweb/yufou"
   },
   "devDependencies": {
     "axios": "^0.18.0",
@@ -36,6 +36,8 @@
     "mint-ui": "^2.2.13",
     "mysql2": "^1.5.3",
     "node-sass": "^4.9.0",
+    "nodemailer": "^4.6.4",
+    "nodemailer-smtp-transport": "^2.7.4",
     "pug": "^2.0.3",
     "reload": "^2.2.2",
     "sass-loader": "^7.0.1",
