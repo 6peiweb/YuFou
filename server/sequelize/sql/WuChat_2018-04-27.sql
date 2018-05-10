@@ -168,7 +168,7 @@ CREATE TABLE `User` (
   `U_ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `U_UserID` varchar(20) NOT NULL DEFAULT '' COMMENT '用户ID',
   `U_NickName` varchar(20) NOT NULL DEFAULT '' COMMENT '昵称',
-  `U_Password` varchar(20) NOT NULL DEFAULT '' COMMENT '密码',
+  `U_Password` varchar(50) NOT NULL DEFAULT '' COMMENT '密码',
   `U_SingaTure` varchar(150) NOT NULL DEFAULT '这个人太懒了，什么都没有留下~' COMMENT '个性签名',
   `U_Sex` enum('男','女','未知') NOT NULL DEFAULT '未知' COMMENT '性别',
   `U_Birthday` datetime DEFAULT NULL COMMENT '生日',

@@ -70,8 +70,16 @@ export default class Register extends Vue {
   }
 
   completed() { // 注册用户
+    let params = {
+      yf_id: this.yf_id,
+      username: this.username,
+      password: (<any>ILib.md5)(this.password),
+      email: this.email
+    }
+    Http.postRegister(params)
+      .then((res: any) => console.log(res))
     if(!this.vaildUserInfo()) {
-
+      console.log(ILib.md5)
     }
   }
 

@@ -37,7 +37,7 @@ router.get('/api/user/login', (req, res) => {
 });
 
 router.post('/api/user/email', (req, res) => {
-  if (!req.body.email) return res.status(400).send('Lack of parameter "email"');
+  if (!req.body.email) return res.status(400).send(`Lack of parameter 'email'`);
   let attributes = [ [Sequelize.fn('COUNT', Sequelize.col('U_UserID')), 'count'] ]
       where = { U_Email: req.body.email };
 
@@ -50,24 +50,32 @@ router.post('/api/user/email', (req, res) => {
           .then((response) => res.send({ data: { sent: true, captcha, ...response }, message: `The captcha has been sent to ${req.body.email}.` }))
           .catch((err) => res.send({ data: { sent: false, captcha: '', ...err }, message: 'The captcha sent failed, please send again.' }));
       } else {
-        res.send({ data: { sent: false, captcha: '' }, message: 'The email has been registered five times.' })
+        res.send({ data: { sent: false, captcha: '' }, message: 'The email has been registered five times.' });
       }
     })
-    .catch((err) => res.statys(400).send(String(err)));
+    .catch((err) => res.status(400).send(String(err)));
 
 });
 
 router.post('/api/user/register', (req, res) => {
-  if (!req.body.email || !req.body.yf_id || !req.body.username || !req.body.password) return res.status(400).send('Lack of parameter');
-  let attributes = ['U_Password'],
-      where = { U_UserID: req.query.username };
+  // if (!req.body.yf_id || !req.body.username || !req.body.password || !req.body.email) return res.status(400).send('Lack of parameter');
+  let attributes = [ [Sequelize.fn('COUNT', Sequelize.col('U_UserID')), 'count'], 'createdAt' ]
+      where = { U_UserID: req.body.yf_id },
+      instance = { U_UserID: req.body.yf_id, U_NickName: req.body.username, U_Password: req.body.password, U_Email: req.body.email, U_HeadPortrait: 'abc' }
 
   User
     .findOne({ attributes, where })
     .then((user) => {
-      if (!user) return res.send({ data: false, message: 'Not found user.' });
-      if (user['U_Password'] !== req.query.password) return res.send({ data: false, message: 'Login failure,password is not correct.' });
-      return res.send({ data: true, message: 'ok' });
+      if (!user.get('count')) {
+        User
+          .create(instance)
+          .then((user) => {
+            res.send({ data: { registed: true, U_ID: user.get('U_ID'), createdAt: user.get('createdAt') }, message: `The yf_id '${req.body.yf_id}' has been registered.` });
+          })
+          .catch((err) => res.status(400).send(String(err)));
+      } else {
+        res.send({ data: { registed: false, user }, message: `The yf_id '${req.body.yf_id}' has been registered.` });
+      }
     })
     .catch((err) => res.status(400).send(String(err)));
 
