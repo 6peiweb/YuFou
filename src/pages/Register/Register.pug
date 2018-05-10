@@ -20,10 +20,13 @@
         mt-button(:class='{countdown: !disp}' size='large' :disabled='!!disp' @click='sendEmail(false)') {{ disp ? disp + 's后可' : '' }}重新获取
         mt-button.captchabtn(size='large' @click='vaildCaptcha') 下一步，填写注册信息
       mt-tab-container-item(id='fillInfo')
-        mt-field.userId(placeholder='输入YF_ID')
-        mt-field.userName(placeholder='输入用户名')
-        mt-field.password(type='password' placeholder='输入密码')
-        mt-field.regainPW(type='password' placeholder='再次输入密码')
+        .prompt 填写注册信息
+        mt-field.userId(label='YF_ID' placeholder='输入YF_ID' v-model='yf_id')
+        mt-field.userName(label='用户名' placeholder='输入用户名' v-model='username')
+        mt-field.password(label='密码' type='password' placeholder='输入密码' v-model='password')
+        mt-field.regainPW(label='确认密码' type='password' placeholder='再次输入密码' v-model='regainPW')
+        mt-button.completed(size='large' @click='completed') 完成注册
+        mt-button.backup(size='large' @click='backup') 返回上一步
 
   mt-actionsheet(:actions='actions' v-model='sheetVisible')
 

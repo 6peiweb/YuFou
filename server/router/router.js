@@ -57,4 +57,20 @@ router.post('/api/user/email', (req, res) => {
 
 });
 
+router.post('/api/user/register', (req, res) => {
+  if (!req.body.email || !req.body.yf_id || !req.body.username || !req.body.password) return res.status(400).send('Lack of parameter');
+  let attributes = ['U_Password'],
+      where = { U_UserID: req.query.username };
+
+  User
+    .findOne({ attributes, where })
+    .then((user) => {
+      if (!user) return res.send({ data: false, message: 'Not found user.' });
+      if (user['U_Password'] !== req.query.password) return res.send({ data: false, message: 'Login failure,password is not correct.' });
+      return res.send({ data: true, message: 'ok' });
+    })
+    .catch((err) => res.status(400).send(String(err)));
+
+});
+
 module.exports = router;

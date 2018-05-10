@@ -5,8 +5,14 @@
   bottom: $bottom;
 }
 
+@mixin marginTop($size) {
+  margin-top: $size;
+}
+
 $coffee: #7b5353;
 $background: #f3f3f3;
+$orange: #f47920;
+$smallOrange: #c6a287;
 
 #register {
   @include position(0, 0, 0);
@@ -60,23 +66,34 @@ $background: #f3f3f3;
       font-size: 20px;
     }
 
-    .email, .user {
-      margin-top: 30px;
+    .email, .userId {
+      @include marginTop(30px);
+      margin-bottom: 5px;
     }
 
     .mint-button--default {
-      margin-top: 10px;
+      @include marginTop(10px);
     }
 
-    .emailbtn {
-      margin-top: 30px;
-      background: #f47920;
+    .emailbtn, .completed {
+      @include marginTop(30px);
+      background: $orange;
+      color: $background;
+    }
+
+    .backup {
+      @include marginTop(10px);
+      background: $smallOrange;
       color: $background;
     }
 
     .countdown, .captchabtn {
       @extend .emailbtn;
-      margin-top: 10px;
+      @include marginTop(10px);
+    }
+
+    userName, .password, .regainPW {
+      margin: 5px 0;
     }
 
   }
