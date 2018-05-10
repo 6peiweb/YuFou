@@ -11,7 +11,7 @@ import Http from './lib/http'
 })
 
 export default class Login extends Vue {
-    private username: string = ''
+    private userId: string = ''
     private password: string = ''
     private VCode: string = ''
     private ICode: string =''
@@ -21,7 +21,7 @@ export default class Login extends Vue {
       { name: '注册', method: this.register }
     ]
 
-    loginSystem() {
+    loginSystem() { // 登录验证id$密码
         this.toast && this.toast.close()
         if (this.validUserInfo() === 'Allow To Login') {
             IMint.Indicator.open({
@@ -31,38 +31,35 @@ export default class Login extends Vue {
             setTimeout(() => {
                 Http.getLoginSystem({
                     params: {
-                        username: this.username,
+                        username: this.userId,
                         password: this.password
                     }
                 }).then((response: any) => {
                     if (response.data.data) return this.$router.push((<lp.RawLocation>{ name: 'message' }))
                     return (this.toast = (<any>this).$toast(`${response.data.message}`))
-                }).finally(() => {
-                    (<any>this.$refs.verifyCode).refreshImage()
-                    IMint.Indicator.close()
-                })
+                }).catch(() => (<any>this.$refs.verifyCode).refreshImage()).finally(() => IMint.Indicator.close())
             }, 1500)
         }
     }
 
-    validUserInfo() {
-        if (!this.username.trim()) return (this.toast = (<any>this).$toast('用户名不能为空'))
+    validUserInfo() {   // 验证登录表单格式
+        if (!this.userId.trim()) return (this.toast = (<any>this).$toast('YF_ID不能为空'))
         if (!this.password.trim()) return (this.toast = (<any>this).$toast('请输入密码'))
         if (!this.ICode.trim()) return (this.toast = (<any>this).$toast('请输入验证码'))
         if (this.ICode.trim().toLowerCase() !== this.VCode.toLowerCase()) return (this.toast = (<any>this).$toast('验证码输入错误'))
         return 'Allow To Login'
     }
 
-    getVCode(code: string) {
+    getVCode(code: string) {    // 子组件触发，获取图片验证码
         this.VCode = code
         console.log('验证码', code)
     }
 
-    register() {
+    register() {    // 跳转到注册路由
         this.$router.push((<lp.RawLocation>{ name: 'register' }))
     }
 
-    moreOption() {
+    moreOption() {  // 更多选项
         this.sheetVisible = true
     }
     

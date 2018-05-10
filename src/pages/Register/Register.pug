@@ -1,15 +1,12 @@
 #register
   mt-header(fixed title='注册')
     mt-button(icon='back' slot='left' @click='backLogin' v-if='!!backRoute') 返回
+    mt-button(icon='more' slot="right" @click.native='moreOption')
+
   .nav
     .title {{ titleArray[step - 1] }}
     mt-progress(:value='size' :bar-height='5')
-    //- mt-button(@click='increment') 增长
 
-
-    //- mt-button(size="small" @click.native.prevent="active = 'animation1'") tab 1
-    //- mt-button(size="small" @click.native.prevent="active = 'animation2'") tab 2
-    //- mt-button(size="small" @click.native.prevent="active = 'animation3'") tab 3
   .page-tab-container
     mt-tab-container(v-model='active' swipeable)
       mt-tab-container-item(id='email')
@@ -17,11 +14,16 @@
         mt-field.email(placeholder='常用邮箱' v-model='email')
         mt-button.emailbtn(size='large' @click='validEmail') 下一步，验证邮箱
       mt-tab-container-item(id='captcha')
-        mt-field.user(label='用户名' placeholder='请输入用户名')
-        mt-field(label='密码' type='password' placeholder='请输入密码')
-        mt-field.vCode(label='验证码' )
+        .prompt 输入邮箱验证码
+        .sentTitle 验证码已发送至 {{ email }}
+        code-box(ref='codeBox')
+        mt-button(:class='{countdown: !disp}' size='large' :disabled='!!disp' @click='sendEmail(false)') {{ disp ? disp + 's后可' : '' }}重新获取
+        mt-button.captchabtn(size='large' @click='vaildCaptcha') 下一步，填写注册信息
       mt-tab-container-item(id='fillInfo')
-        mt-field.user(label='用户名' placeholder='请输入用户名')
-        mt-field(label='密码' type='password' placeholder='请输入密码')
-        mt-field.vCode(label='验证码' )
+        mt-field.userId(placeholder='输入YF_ID')
+        mt-field.userName(placeholder='输入用户名')
+        mt-field.password(type='password' placeholder='输入密码')
+        mt-field.regainPW(type='password' placeholder='再次输入密码')
+
+  mt-actionsheet(:actions='actions' v-model='sheetVisible')
 

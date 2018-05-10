@@ -1,5 +1,5 @@
-<template src='./verifyCode.pug' lang='pug'></template>
+<template src='./VerifyCode.pug' lang='pug'></template>
 
-<script src="./verifyCode.ts" lang="ts"></script>
+<script src="./VerifyCode.ts" lang="ts"></script>
 
-<style src="./verifyCode.scss" lang="scss"></style>
+<style src="./VerifyCode.scss" lang="scss"></style>

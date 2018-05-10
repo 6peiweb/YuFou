@@ -1,0 +1,32 @@
+@mixin position($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+$coffee: #7b5353;
+
+.codeBox {
+  display: flex;
+  position: relative;
+
+  .my-input {
+    flex: 1;
+    height: 60px;
+    width: 40px;
+    margin: 30px 5px;
+    border: 1px solid $coffee;
+    background: transparent;
+    color: transparent;
+    font-size: 28px;
+    text-shadow:0 0 0 $coffee;
+    text-align: center;
+  }
+
+  .cover {
+    @include position(0, 0, 0, 0)
+  }
+
+}

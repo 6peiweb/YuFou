@@ -29,12 +29,12 @@ export default class VerifyCode extends Vue {
         this.postVCode()
     }
 
-    refreshImage() {
+    refreshImage() {    // 刷新验证码
         this.vCodeImage.refresh()
         this.postVCode()
     }
 
-    postVCode() {
+    postVCode() {   // 获取图片中验证码
         this.$emit('getVCode', this.vCodeImage.options.code)
     }
 
