@@ -76,10 +76,20 @@ export default class Register extends Vue {
       password: (<any>ILib.md5)(this.password),
       email: this.email
     }
-    Http.postRegister(params)
-      .then((res: any) => console.log(res))
     if(!this.vaildUserInfo()) {
-      console.log(ILib.md5)
+      IMint.Indicator.open({ text: '注册中...', spinnerType: 'snake' })
+      setTimeout(() => {
+        Http.postRegister(params)
+          .then((response: any) => {
+            if (response.data.data.registed) {
+              this.$router.push((<lp.RawLocation>{ name: 'login' }))
+              return this.toast('注册成功')
+            }
+            return this.toast(`${response.data.message}`)
+          })
+          .catch((error: any) => this.toast(error))
+          .finally(() =>  IMint.Indicator.close())
+      }, 1500)
     }
   }
 

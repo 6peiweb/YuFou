@@ -58,7 +58,7 @@ router.post('/api/user/email', (req, res) => {
 });
 
 router.post('/api/user/register', (req, res) => {
-  // if (!req.body.yf_id || !req.body.username || !req.body.password || !req.body.email) return res.status(400).send('Lack of parameter');
+  if (!req.body.yf_id || !req.body.username || !req.body.password || !req.body.email) return res.status(400).send('Lack of parameter');
   let attributes = [ [Sequelize.fn('COUNT', Sequelize.col('U_UserID')), 'count'], 'createdAt' ]
       where = { U_UserID: req.body.yf_id },
       instance = { U_UserID: req.body.yf_id, U_NickName: req.body.username, U_Password: req.body.password, U_Email: req.body.email, U_HeadPortrait: 'abc' }
@@ -69,9 +69,10 @@ router.post('/api/user/register', (req, res) => {
       if (!user.get('count')) {
         User
           .create(instance)
-          .then((user) => {
-            res.send({ data: { registed: true, U_ID: user.get('U_ID'), createdAt: user.get('createdAt') }, message: `The yf_id '${req.body.yf_id}' has been registered.` });
-          })
+          .then((user) => res.send({ 
+            data: { registed: true, U_ID: user.get('U_ID'), U_UserID: user.get('U_UserID'), createdAt: user.get('createdAt') }, 
+            message: `The yf_id '${req.body.yf_id}' registered successfully.` 
+          }))
           .catch((err) => res.status(400).send(String(err)));
       } else {
         res.send({ data: { registed: false, user }, message: `The yf_id '${req.body.yf_id}' has been registered.` });
