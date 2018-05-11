@@ -6,6 +6,7 @@ import Vue from 'vue'
 })
 
 export default class Setting extends Vue {
+  private route: lp.RouteConfig = { path: `home/${this.$store.getters.userInfo.U_ID}/owner` }
   private sheetVisible: boolean = false
   private actions = [
     { name: '退出登录', method: this.logout }

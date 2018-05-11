@@ -1,13 +1,32 @@
+@mixin slider($direction) {
+  position: absolute;
+  bottom: 0;
+  width: 40%;
+  height: 0.2em;
+  background: $coffee;
+  z-index: 2;
+  #{$direction}: 5%;
+}
+
+$coffee: #7b5353;
+
 .contacts {
+  
+  .mint-navbar {
+    position: relative;
+    overflow: hidden;
 
-  .mint-indexlist {
+    .mint-tab-item.is-selected {
+      border: 0px;
+      margin-bottom: 0;
+    }
 
-    // .mint-indexlist-content {
-    //   margin-right: 0;
-    // }
+    .friend-slider {
+      @include slider(left)
+    }
 
-    .mint-indexlist-nav {
-      top: -50px;
+    .group-slider {
+      @include slider(right)
     }
 
   }

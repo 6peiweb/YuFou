@@ -6,5 +6,16 @@ import Vue from 'vue'
 })
 
 export default class Contacts extends Vue {
-  private selectedTab: string = 'message'
+  private tabItems: Array<string> = ['friend', 'group']
+  private selectedTab: string = 'friend'
+  private searchValue: string = ''
+
+  openSearch() {
+    console.log(1234)
+  }
+
+  showContacts() {
+    console.log('click')
+  }
+
 }

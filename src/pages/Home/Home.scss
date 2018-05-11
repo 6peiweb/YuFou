@@ -8,8 +8,8 @@
 
 $blackFont: #2c3e50;
 $coffee: #7b5353;
-$tabbar: #fafafa;
 $background: #f3f3f3;
+$white: #fff;
 
 @mixin position($top, $right, $bottom, $left) {
   position: absolute;
@@ -25,10 +25,10 @@ $background: #f3f3f3;
 
   .mint-tab-item {
     position: relative;
+    background: $white;
 
     &.is-selected {
       color: $coffee;
-      background: $tabbar;;
     }
 
     .router-link {

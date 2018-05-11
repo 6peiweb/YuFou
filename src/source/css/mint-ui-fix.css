@@ -28,6 +28,18 @@ header.mint-header {
   background: #fafafa;
 }
 
+.mint-search {
+  height: inherit;
+}
+
+.mint-searchbar-inner {
+  height: 1.5em;
+}
+
+.mint-searchbar-cancel {
+  color: #7b5353;
+}
+
 /* fade路由动画 */
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
@@ -45,4 +57,51 @@ header.mint-header {
 }
 .slide-right-enter-to,.slide-right-leave {
   transform: translateX(0);
+}
+
+/* friend-slider动画 */
+.friend-slider-enter-active {
+  animation: friend-slider-enter .5s;
+}
+.friend-slider-leave-active {
+  animation: friend-slider-leave .5s;
+}
+@keyframes friend-slider-enter {
+  from {
+    left: 55%;
+  }
+  to {
+    left: 5%;
+  }
+}
+@keyframes friend-slider-leave {
+  from {
+    left: 5%;
+  }
+  to {
+    left: 55%;
+  }
+}
+/* group-slider动画 */
+.group-slider-enter-active {
+  animation: group-slider-enter .5s;
+}
+.group-slider-leave-active {
+  animation: group-slider-leave .5s;
+}
+@keyframes group-slider-enter {
+  from {
+    right: 55%;
+  }
+  to {
+    right: 5%;
+  }
+}
+@keyframes group-slider-leave {
+  from {
+    right: 5%;
+  }
+  to {
+    right: 55%;
+  }
 }

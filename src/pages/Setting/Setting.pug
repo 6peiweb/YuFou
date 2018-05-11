@@ -1,6 +1,6 @@
 div#setting
   mt-header(fixed title='设置')
-    router-link(to="home/owner" slot='left') 
+    router-link(:to='route' slot='left') 
       mt-button(icon='back') 我
   
   mt-cell.security(title='账号与安全' @click.native='jumpRoute')
