@@ -24,7 +24,7 @@ export default class Login extends Vue {
     loginSystem() { // 登录验证id$密码
         this.toast && this.toast.close()
         if (this.validUserInfo() === 'Allow To Login') {
-            let params = { params: { username: this.userId, password: this.password } }
+            let params = { params: { username: this.userId, password:  (<any>ILib.md5)(this.password) } }
             IMint.Indicator.open({
                 text: '登录中...',
                 spinnerType: 'snake'
@@ -33,7 +33,7 @@ export default class Login extends Vue {
                 Http.getLoginSystem(params)
                     .then((response: any) => {
                         if (response.data.data) {
-                            this.$router.push((<lp.RawLocation>{ name: 'message' }))
+                            this.$router.push((<lp.RawLocation>{ name: 'message', params: { userId: response.data.U_ID } }))
                             return (this.toast = (<any>this).$toast('登录成功'))
                         }
                         return (this.toast = (<any>this).$toast(`${response.data.message}`))

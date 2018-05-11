@@ -1,5 +1,6 @@
 import Component from 'vue-class-component'
 import Vue from 'vue'
+import Http from './lib/http'
 
 @Component({
   name: 'home',
@@ -23,23 +24,30 @@ export default class Home extends Vue {
   }
   public animation: string = 'fade'
 
-  created() {
+  created() {   // 初始化选中tab、获取用户信息
     this.selectedTab = this.$route.name
+    Http.getUserInfo({ params: { userId: this.$route.params.userId } })
+      .then((response: any) => this.$store.dispatch('update_userInfo', response.data))
+      .catch((error: any) => this.toast(`Failed to get userInfo by '${error}'`))
   }
 
   getImgSrc(val: string) {
     return `image/header/${val}`
   }
 
-  watchSelectTab(val: string) {
+  watchSelectTab(val: string) { // 切换tab图标
     this.tablist.forEach((tab) => {
       let src = tab.imgSrc, prefix = 'active-'
        tab.name === val ? (src.indexOf(prefix) === -1) && (tab.imgSrc = prefix + src) : (src.indexOf(prefix) !== -1) && (tab.imgSrc = src.replace(prefix,''))
     })
   }
 
-  watchRoute(newRoute: lp.RouteConfig) {
+  watchRoute(newRoute: lp.RouteConfig) {  // 监听主页面路由变化
     this.selectedTab = newRoute.name
+  }
+
+  toast(message: string) {  // 弹出提示框
+    return (<any>this).$toast({ message, duration: 1500})
   }
 
 }

@@ -22,15 +22,15 @@ router.get('/api/user/:keyword/:pageNum', (req, res) => {
 });
 
 router.get('/api/user/login', (req, res) => {
-  let attributes = ['U_Password'],
+  let attributes = ['U_ID', 'U_Password'],
       where = { U_UserID: req.query.username };
 
   User
     .findOne({ attributes, where })
     .then((user) => {
       if (!user) return res.send({ data: false, message: 'Not found user.' });
-      if (user['U_Password'] !== req.query.password) return res.send({ data: false, message: 'Login failure,password is not correct.' });
-      return res.send({ data: true, message: 'ok' });
+      if (user.get('U_Password') !== req.query.password) return res.send({ data: false, message: 'Login failure,password is not correct.' });
+      return res.send({ data: true, U_ID: user.get('U_ID'), message: 'ok' });
     })
     .catch((err) => res.status(400).send(String(err)));
 
@@ -38,6 +38,7 @@ router.get('/api/user/login', (req, res) => {
 
 router.post('/api/user/email', (req, res) => {
   if (!req.body.email) return res.status(400).send(`Lack of parameter 'email'`);
+  
   let attributes = [ [Sequelize.fn('COUNT', Sequelize.col('U_UserID')), 'count'] ]
       where = { U_Email: req.body.email };
 
@@ -59,6 +60,7 @@ router.post('/api/user/email', (req, res) => {
 
 router.post('/api/user/register', (req, res) => {
   if (!req.body.yf_id || !req.body.username || !req.body.password || !req.body.email) return res.status(400).send('Lack of parameter');
+
   let attributes = [ [Sequelize.fn('COUNT', Sequelize.col('U_UserID')), 'count'], 'createdAt' ]
       where = { U_UserID: req.body.yf_id },
       instance = { U_UserID: req.body.yf_id, U_NickName: req.body.username, U_Password: req.body.password, U_Email: req.body.email, U_HeadPortrait: 'abc' }
@@ -78,6 +80,19 @@ router.post('/api/user/register', (req, res) => {
         res.send({ data: { registed: false, user }, message: `The yf_id '${req.body.yf_id}' has been registered.` });
       }
     })
+    .catch((err) => res.status(400).send(String(err)));
+
+});
+
+router.get('/api/user/info', (req, res) => {
+  if (!req.query.userId) return res.status(400).send(`Lack of parameter 'userId'`);
+
+  let attributes = { exclude: ['UserStateUSID', 'UserFriendPolicyUFPID'] }
+      where = { U_ID: req.query.userId }
+
+  User
+    .findOne({ attributes, where })
+    .then((user) => res.send(user))
     .catch((err) => res.status(400).send(String(err)));
 
 });

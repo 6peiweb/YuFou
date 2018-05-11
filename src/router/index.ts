@@ -13,11 +13,11 @@ const routes: Array<lp.RouteConfig> = [
     path: '/',
     name: 'app',
     redirect: {
-      name: 'message'
+      name: 'login'
     }
   },
   {
-    path: '/home',
+    path: '/home/:userId',
     name: 'home',
     component: Home,
     children: [
