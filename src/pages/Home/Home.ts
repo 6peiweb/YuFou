@@ -28,7 +28,7 @@ export default class Home extends Vue {
     this.selectedTab = this.$route.name
     Http.getUserInfo({ params: { userId: this.$route.params.userId } })
       .then((response: any) => this.$store.dispatch('update_userInfo', response.data))
-      .catch((error: any) => this.toast(`Failed to get userInfo by '${error}'`))
+      .catch((error: any) => this.toast(`Failed to get user-Info by '${error}'`))
   }
 
   getImgSrc(val: string) {

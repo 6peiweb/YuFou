@@ -10,5 +10,6 @@ div.contacts
 
   mt-tab-container(v-model='selectedTab')
     mt-tab-container-item(:id='tabItems[0]')
-      group-member(v-for='(value,key) in groupList' :groupInfo='value' :key='key')
+      friend-group(v-for='(value,key) in friendGroup' :groupInfo='value' :key='key')
     mt-tab-container-item(:id='tabItems[1]')
+      user-group(v-for='(value,key) in userGroup' :groupInfo='value' :key='key')

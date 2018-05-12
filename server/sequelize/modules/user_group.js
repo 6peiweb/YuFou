@@ -38,6 +38,11 @@ const UserGroup = sequelize.define('User_Group', {
     allowNull: true,
     comment: '群简介'
   },
+  'UG_Member': {
+    type: Sequelize.TEXT,
+    allowNull: false,
+    comment: '群成员ID集合'
+  },
   createdAt: Sequelize.DATE,
   updatedAt: Sequelize.DATE
 }, {

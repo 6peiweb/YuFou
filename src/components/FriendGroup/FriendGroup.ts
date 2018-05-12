@@ -2,21 +2,21 @@ import Component from 'vue-class-component'
 import Vue from 'vue'
 
 @Component({
-  name: 'groupMember',
+  name: 'friendGroup',
   props: {
     groupInfo: Object
   }
 })
 
 
-export default class GroupMember extends Vue {
+export default class FriendGroup extends Vue {
   private dropDown: boolean = false
 
   created() {
-    console.log((<any>this).groupInfo)
+    // console.log(this.$props.groupInfo)
   }
 
-  showMembers() {
+  toggleShow() {
     this.dropDown = !this.dropDown
   }
 
