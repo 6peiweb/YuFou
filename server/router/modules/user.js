@@ -22,7 +22,7 @@ router.get('/login', (req, res) => {
 router.post('/email', (req, res) => {
   if (!req.body.email) return res.status(400).send(`Lack of parameter 'email'`);
   
-  let attributes = [ [Sequelize.fn('COUNT', Sequelize.col('U_UserID')), 'count'] ]
+  let attributes = [ [Sequelize.fn('COUNT', Sequelize.col('U_UserID')), 'count'] ],
       where = { U_Email: req.body.email };
 
   User
@@ -44,9 +44,9 @@ router.post('/email', (req, res) => {
 router.post('/register', (req, res) => {
   if (!req.body.yf_id || !req.body.username || !req.body.password || !req.body.email) return res.status(400).send('Lack of parameter');
 
-  let attributes = [ [Sequelize.fn('COUNT', Sequelize.col('U_UserID')), 'count'], 'createdAt' ]
+  let attributes = [ [Sequelize.fn('COUNT', Sequelize.col('U_UserID')), 'count'], 'createdAt' ],
       where = { U_UserID: req.body.yf_id },
-      instance = { U_UserID: req.body.yf_id, U_NickName: req.body.username, U_Password: req.body.password, U_Email: req.body.email, U_HeadPortrait: 'abc' }
+      instance = { U_UserID: req.body.yf_id, U_NickName: req.body.username, U_Password: req.body.password, U_Email: req.body.email, U_HeadPortrait: 'abc' };
 
   User
     .findOne({ attributes, where })
@@ -70,8 +70,8 @@ router.post('/register', (req, res) => {
 router.get('/info', (req, res) => {
   if (!req.query.userId) return res.status(400).send(`Lack of parameter 'userId'`);
 
-  let attributes = { exclude: ['U_Password', 'U_FriendPolicyAnswer', 'U_FriendPolicyPassword', 'UserStateUSID', 'UserFriendPolicyUFPID'] }
-      where = { U_ID: req.query.userId }
+  let attributes = { exclude: ['U_Password', 'U_FriendPolicyAnswer', 'U_FriendPolicyPassword', 'UserStateUSID', 'UserFriendPolicyUFPID'] },
+      where = { U_ID: req.query.userId };
 
   User
     .findOne({ attributes, where })
