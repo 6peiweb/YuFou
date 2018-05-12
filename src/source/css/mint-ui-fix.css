@@ -1,3 +1,6 @@
+/*
+ * mint-ui样式补充
+ */
 input::-webkit-input-placeholder{
   color: #7b535388;
 }
@@ -32,6 +35,10 @@ header.mint-header {
   height: inherit;
 }
 
+.mint-searchbar {
+  z-index: 0;
+}
+
 .mint-searchbar-inner {
   height: 1.5em;
 }
@@ -39,6 +46,12 @@ header.mint-header {
 .mint-searchbar-cancel {
   color: #7b5353;
 }
+
+
+/*
+ * transition动画
+ */
+
 
 /* fade路由动画 */
 .fade-enter-active, .fade-leave-active {
@@ -104,4 +117,15 @@ header.mint-header {
   to {
     right: 55%;
   }
+}
+
+/* drop-down路由动画 */
+.drop-down-enter-active, .drop-down-leave-active {
+  transition: all 0.2s ease;
+}
+.drop-down-enter, .drop-down-leave-to {
+  transform: translateY(-100%);
+}
+.drop-down-enter-to,.drop-down-leave {
+  transform: translateY(0);
 }

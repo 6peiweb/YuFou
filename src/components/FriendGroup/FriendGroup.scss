@@ -1,0 +1,47 @@
+$coffee: #7b5353;
+$white: #fff;
+
+.friendGroup {
+
+  background: $white;
+  font-size: 16px;
+  color: $coffee;
+  overflow: hidden;
+
+  .group-header {
+    height: 40px;
+    line-height: 40px;
+
+    .icon {
+      float: left;
+      margin-left: 0.5em;
+      display: block;
+      height: 40px;
+      transform: rotate(-90deg);
+      transition: transform .3s;
+
+      &.dropDown {
+        transform: rotate(0deg);
+      }
+
+    }
+
+    .group-name {
+      float: left;
+      margin-left: 0.5em;
+    }
+
+  }
+
+  .members {
+    overflow: hidden;
+  }
+
+  .group-members {
+    .group-member {
+      height: 40px;
+      text-align: center;
+    }
+  }
+
+}
