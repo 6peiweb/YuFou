@@ -27,8 +27,6 @@ FriendGroup.belongsTo(User, {foreignKey: 'FG_UserID'});
 // Friend表外键关系映射
 User.hasMany(Friend);
 Friend.belongsTo(User, {foreignKey: 'F_FriendID'});
-User.hasMany(Friend);
-Friend.belongsTo(User, {foreignKey: 'F_UserID'});
 FriendGroup.hasMany(Friend);
 Friend.belongsTo(FriendGroup, {foreignKey: 'F_FriendGroupID'});
 

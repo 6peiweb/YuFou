@@ -1,13 +1,13 @@
-.friendGroup
+.groupMember
   .group-header(@click='showMembers')
     img.icon(src='./lib/drop-down.svg' width='20' height='20' :class='{dropDown}')
-    .group-name  {{ groupName }}
+    .group-name  {{ groupInfo.FG_Name }}
 
   .group-content
     transition(name='drop-down')
       .group-members(v-if='dropDown')
-        .group-member(v-for='(value, key) in members' :key='key')
+        .group-member(v-for='(value, key) in groupInfo.rows' :key='key')
           img.portrait(src='@@/image/yufou.png' width='48' height='48')
           .userInfo
-            .username {{ value }}
-            .singature [{{ value }}]{{ value }}
+            .username {{ value.F_Name || value.User.U_NickName }}
+            .singature [{{ value.User.User_State.US_Name }}]{{ value.User.U_SingaTure }}
