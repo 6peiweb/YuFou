@@ -3,7 +3,11 @@
     img.icon(src='./lib/drop-down.svg' width='20' height='20' :class='{dropDown}')
     .group-name  {{ groupName }}
 
-  .members
+  .group-content
     transition(name='drop-down')
       .group-members(v-if='dropDown')
-        .group-member(v-for='(value, key) in members' :key='key') {{ value }}
+        .group-member(v-for='(value, key) in members' :key='key')
+          img.portrait(src='@@/image/yufou.png' width='48' height='48')
+          .userInfo
+            .username {{ value }}
+            .singature [{{ value }}]{{ value }}

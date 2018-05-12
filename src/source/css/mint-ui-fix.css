@@ -118,14 +118,3 @@ header.mint-header {
     right: 55%;
   }
 }
-
-/* drop-down路由动画 */
-.drop-down-enter-active, .drop-down-leave-active {
-  transition: all 0.2s ease;
-}
-.drop-down-enter, .drop-down-leave-to {
-  transform: translateY(-100%);
-}
-.drop-down-enter-to,.drop-down-leave {
-  transform: translateY(0);
-}

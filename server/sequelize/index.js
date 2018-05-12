@@ -1,14 +1,14 @@
-const User = require('./module/user');
-const UserState = require('./module/user_state');
-const UserGroup = require('./module/user_group');
-const UserFriendPolicy = require('./module/user_friendpolicy');
-const UserGroupMessage = require('./module/user_groupmessage');
+const User = require('./modules/user');
+const UserState = require('./modules/user_state');
+const UserGroup = require('./modules/user_group');
+const UserFriendPolicy = require('./modules/user_friendpolicy');
+const UserGroupMessage = require('./modules/user_groupmessage');
 
-const Friend = require('./module/friend');
-const FriendGroup = require('./module/friend_group');
+const Friend = require('./modules/friend');
+const FriendGroup = require('./modules/friend_group');
 
-const Message = require('./module/message');
-const MessageType = require('./module/message_type');
+const Message = require('./modules/message');
+const MessageType = require('./modules/message_type');
 
 // User表外键关系映射
 UserState.hasMany(User);

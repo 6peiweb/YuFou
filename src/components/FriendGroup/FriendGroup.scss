@@ -1,5 +1,21 @@
+@mixin marginLeft {
+  margin-left: 0.5em;
+}
+
+@mixin field($direction, $size) {
+  position: absolute;
+  #{$direction}: 0;
+  left: 0;
+  height: 4 * $size;
+  line-height: 4 * $size;
+  font-size: 4 * $size;
+}
+
 $coffee: #7b5353;
+$background: #f3f3f3;
 $white: #fff;
+
+$normal: 50px;
 
 .friendGroup {
 
@@ -9,14 +25,14 @@ $white: #fff;
   overflow: hidden;
 
   .group-header {
-    height: 40px;
-    line-height: 40px;
+    height: $normal;
+    line-height: $normal;
 
     .icon {
+      @include marginLeft;
       float: left;
-      margin-left: 0.5em;
       display: block;
-      height: 40px;
+      height: $normal;
       transform: rotate(-90deg);
       transition: transform .3s;
 
@@ -27,21 +43,70 @@ $white: #fff;
     }
 
     .group-name {
+      @include marginLeft;
       float: left;
-      margin-left: 0.5em;
     }
 
   }
 
-  .members {
+  .group-content {
     overflow: hidden;
-  }
 
-  .group-members {
-    .group-member {
-      height: 40px;
-      text-align: center;
+    .group-members {
+
+      .group-member {
+        height: $normal + 5px;
+        line-height:  $normal + 5px;
+        border-bottom: 0.3px solid $background;
+        position: relative;
+
+        .portrait {
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 0.5em;
+          transform: translateY(-50%);
+        }
+
+        .userInfo {
+          position: absolute;
+          top: 50%;
+          left: 1.5 * $normal;
+          width: 60%;
+          height: 0.8 * $normal;
+          transform: translateY(-50%);
+
+          .username {
+            @include field(top, 5px);
+            color: #555;
+          }
+
+          .singature {
+            @include field(bottom, 4px);
+            color: #999;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+        }
+
+      }
+
     }
+
   }
 
+}
+
+/* drop-down路由动画 */
+.drop-down-enter-active, .drop-down-leave-active {
+  transition: all 0.2s ease;
+}
+.drop-down-enter, .drop-down-leave-to {
+  transform: translateY(-100%);
+}
+.drop-down-enter-to,.drop-down-leave {
+  transform: translateY(0);
 }

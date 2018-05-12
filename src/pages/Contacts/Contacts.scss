@@ -21,6 +21,10 @@ $coffee: #7b5353;
       margin-bottom: 0;
     }
 
+    .mint-tab-item-label {
+      font-size: 16px;
+    }
+
     .friend-slider {
       @include slider(left)
     }
