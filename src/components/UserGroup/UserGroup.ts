@@ -13,7 +13,7 @@ export default class UserGroup extends Vue {
   private dropDown: boolean = false
 
   created() {
-    console.log(this.$props.groupInfo)
+    // console.log(this.$props.groupInfo)
   }
 
   toggleShow() {

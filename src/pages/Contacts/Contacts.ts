@@ -18,7 +18,7 @@ export default class Contacts extends Vue {
   private friendGroup: Object = {}
   private userGroup: Object = {}
 
-  created() {
+  created() { // 获取到好友分组信息、用户群组信息
     Http.getFriendGroup({ params: { userId: this.$store.getters.userInfo.U_ID || this.$route.params.userId }})
       .then((response: any) => this.friendGroup = response.data)
       .catch((error: any) => this.toast(`Failed to get friend-Info by '${error}'`))
@@ -27,16 +27,16 @@ export default class Contacts extends Vue {
       .catch((error: any) => this.toast(`Failed to get friend-Info by '${error}'`))
   }
 
-  openSearch() {
+  openSearch() {  // 跳转到搜索页
     console.log(1234)
   }
 
-  showContacts() {
+  showContacts() {  
     console.log('click')
   }
   
-  selectFriend(friendId: number) {
-    this.$router.push((<lp.RawLocation>{ name: 'userDetail', params: { friendId }}))
+  selectFriend(friendId: number) {  // 选中朋友进行下一步操作
+    this.$router.push(<lp.RawLocation>{ name: 'userDetail', params: { friendId } })
   }
 
   toast(message: string) {  // 弹出提示框

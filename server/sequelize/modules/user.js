@@ -45,6 +45,11 @@ const User = sequelize.define('User', {
     allowNull: false,
     comment: '邮箱'
   },
+  'U_Address': {
+    type: Sequelize.STRING(30),
+    allowNull: true,
+    comment: '所在地'
+  },
   'U_HeadPortrait': {
     type: Sequelize.STRING(100),
     allowNull: false,

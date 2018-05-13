@@ -60,3 +60,4 @@ declare namespace lp {
 
 declare var ILib: lp.ILib;
 declare var IMint: lp.IMint;
+declare var IClipboard: (method: string, content: string) => void;

@@ -6,6 +6,7 @@ import Setting from '@/pages/Setting/Setting.vue'
 import Login from '@/pages/Login/Login.vue'
 import Register from '@/pages/Register/Register.vue'
 import UserDetail from '@/pages/UserDetail/UserDetail.vue'
+import FriendChatView from '@/pages/FriendChatView/FriendChatView.vue'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ const routes: Array<lp.RouteConfig> = [
     path: '/userDetail/:friendId',
     name: 'userDetail',
     component: UserDetail
+  },
+  {
+    path: '/friendChatView/:friendId',
+    name: 'friendChatView',
+    component: FriendChatView
   }
 ]
 

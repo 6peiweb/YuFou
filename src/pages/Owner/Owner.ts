@@ -10,7 +10,7 @@ export default class Owner extends Vue {
   private UserId: string = this.$store.getters.userInfo.U_UserID
   
   jumpSetting() {
-    this.$router.push((<lp.RawLocation>{name: 'setting'}))
+    this.$router.push(<lp.RawLocation>{name: 'setting'})
   }
 
 }

@@ -16,11 +16,11 @@ export default class FriendGroup extends Vue {
     // console.log(this.$props.groupInfo)
   }
 
-  toggleShow() {
+  toggleShow() {  // 切换展示分组详情
     this.dropDown = !this.dropDown
   }
 
-  selectMember(userId: number) {
+  selectMember(userId: number) {  // 选中成员，出发父组建selectFriend事件
     this.$emit('selectFriend', userId)
   }
 

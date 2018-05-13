@@ -33,7 +33,7 @@ export default class Login extends Vue {
                 Http.getLoginSystem(params)
                     .then((response: any) => {
                         if (response.data.data) {
-                            this.$router.push((<lp.RawLocation>{ name: 'message', params: { userId: response.data.U_ID } }))
+                            this.$router.push(<lp.RawLocation>{ name: 'message', params: { userId: response.data.U_ID } })
                             return (this.toast = (<any>this).$toast('登录成功'))
                         }
                         return (this.toast = (<any>this).$toast(`${response.data.message}`))

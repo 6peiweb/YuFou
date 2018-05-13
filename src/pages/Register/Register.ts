@@ -82,7 +82,7 @@ export default class Register extends Vue {
         Http.postRegister(params)
           .then((response: any) => {
             if (response.data.data.registed) {
-              this.$router.push((<lp.RawLocation>{ name: 'login' }))
+              this.$router.push(<lp.RawLocation>{ name: 'login' })
               return this.toast('注册成功')
             }
             return this.toast(`${response.data.message}`)
@@ -99,11 +99,11 @@ export default class Register extends Vue {
   }
 
   backLogin() { // 返回上一个路由
-    this.$router.push((<lp.RawLocation>{ name: this.backRoute.name }))
+    this.$router.push(<lp.RawLocation>{ name: this.backRoute.name })
   }
 
   login() { // 返回登录
-    this.$router.push((<lp.RawLocation>{ name: 'login' }))
+    this.$router.push(<lp.RawLocation>{ name: 'login' })
   }
 
   increment() { // 进行注册下一步

@@ -47,6 +47,10 @@ header.mint-header {
   color: #7b5353;
 }
 
+.mint-msgbox {
+  border-radius: 20px;
+}
+
 
 /*
  * transition动画

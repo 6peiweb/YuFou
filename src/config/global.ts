@@ -17,3 +17,13 @@ window['IMint'] = {
   Indicator,
   MessageBox
 }
+
+window['IClipboard'] = (method: string, content: string) => {
+  let virtualInput = document.createElement('input')
+  virtualInput.value = content
+  document.body.appendChild(virtualInput)
+  virtualInput.select()
+  document.execCommand(method, true)
+  virtualInput.style.display = 'none'
+  document.body.removeChild(virtualInput)
+}

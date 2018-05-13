@@ -1,21 +1,23 @@
 #userDetail
   mt-header(fixed title='详细资料')
-    router-link(to='route' slot='left') 
-      mt-button(icon='back') 联系人
+    mt-button(icon='back') 联系人
 
   mt-cell.userinfo
     img.portrait(src='@@/image/yufou.png' width='54' height='54')
     .maininfo
-      p UserName
-      p chatId: UserId
-      //- p 昵称: UserId
+      p {{ friendInfo.F_Name || friendInfo.U_NickName }}
+      p chatId: {{ friendInfo.U_UserID }}
+      p(v-if='friendInfo.F_Name') 昵称: {{ friendInfo.U_NickName }}
 
-  mt-cell.remark(title='设置备注' @click.native='jumpSetting')
-    img.more(src='/image/owner/more.svg' width='20' height='20')
-  
-  mt-cell.address(title='地区' @click.native='jumpSetting')
+  .operate
+    mt-cell.remark(title='设置备注' @click.native='jumpSetting' v-if='!friendInfo.F_Name')
+      img.more(src='/image/owner/more.svg' width='20' height='20')
+    mt-cell.email(title='邮箱' :value='friendInfo.U_Email' @click.native='copyEmail(friendInfo.U_Email)')
+
+  mt-cell.birthday(title='生日' :value='birthday')
+  mt-cell.address(title='所在地' :value='friendInfo.U_Address')
   mt-cell.moreinfo(title='更多' @click.native='jumpSetting')
     img.more(src='/image/owner/more.svg' width='20' height='20')
 
-  mt-button.sendMessage(size='large' @click='backup') 发消息
+  mt-button.sendMessage(size='large' @click='enterFriendChatView') 发消息
     
