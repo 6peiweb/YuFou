@@ -5,6 +5,7 @@ import { homeRouter } from './modules'
 import Setting from '@/pages/Setting/Setting.vue'
 import Login from '@/pages/Login/Login.vue'
 import Register from '@/pages/Register/Register.vue'
+import UserDetail from '@/pages/UserDetail/UserDetail.vue'
 
 Vue.use(Router)
 
@@ -38,6 +39,11 @@ const routes: Array<lp.RouteConfig> = [
     path: '/register',
     name: 'register',
     component: Register
+  },
+  {
+    path: '/userDetail/:friendId',
+    name: 'userDetail',
+    component: UserDetail
   }
 ]
 

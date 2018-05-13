@@ -34,6 +34,10 @@ export default class Contacts extends Vue {
   showContacts() {
     console.log('click')
   }
+  
+  selectFriend(friendId: number) {
+    this.$router.push((<lp.RawLocation>{ name: 'userDetail', params: { friendId }}))
+  }
 
   toast(message: string) {  // 弹出提示框
     return (<any>this).$toast({ message, duration: 1500})

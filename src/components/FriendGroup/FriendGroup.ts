@@ -20,4 +20,8 @@ export default class FriendGroup extends Vue {
     this.dropDown = !this.dropDown
   }
 
+  selectMember(userId: number) {
+    this.$emit('selectFriend', userId)
+  }
+
 }

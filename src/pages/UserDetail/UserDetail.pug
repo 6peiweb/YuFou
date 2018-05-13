@@ -1,0 +1,21 @@
+#userDetail
+  mt-header(fixed title='详细资料')
+    router-link(to='route' slot='left') 
+      mt-button(icon='back') 联系人
+
+  mt-cell.userinfo
+    img.portrait(src='@@/image/yufou.png' width='54' height='54')
+    .maininfo
+      p UserName
+      p chatId: UserId
+      //- p 昵称: UserId
+
+  mt-cell.remark(title='设置备注' @click.native='jumpSetting')
+    img.more(src='/image/owner/more.svg' width='20' height='20')
+  
+  mt-cell.address(title='地区' @click.native='jumpSetting')
+  mt-cell.moreinfo(title='更多' @click.native='jumpSetting')
+    img.more(src='/image/owner/more.svg' width='20' height='20')
+
+  mt-button.sendMessage(size='large' @click='backup') 发消息
+    
