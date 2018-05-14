@@ -1,6 +1,6 @@
 #userDetail
   mt-header(fixed title='详细资料')
-    mt-button(icon='back') 联系人
+    mt-button(icon='back' slot='left' @click='jumpContacts') 联系人
 
   mt-cell.userinfo
     img.portrait(src='@@/image/yufou.png' width='54' height='54')

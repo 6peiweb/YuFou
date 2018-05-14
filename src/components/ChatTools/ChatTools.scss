@@ -1,0 +1,65 @@
+$tabbar: #fafafa;
+$background: #f3f3f3;
+$font: #2c3e50;
+$coffee: #7b5353;
+
+.chatTools {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background: $tabbar;
+
+  .inputBar {
+    position: relative;
+
+    .inputWay {
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+    }
+
+    .content {
+      padding: 6px 66px 6px 36px;
+
+      .inputContent {
+        border: 1px solid $coffee;
+        border-radius: 5px;
+        padding: 0 5px;
+
+        .textarea {
+          width: 100%;
+          border: 0;
+          outline: 0;
+          border-radius: 5px;
+          padding: 0;
+          color: $font;
+          font-family: "STKaiti","KaiTi","Weibei SC","Xingkai SC","Hanzipen SC";
+          overflow: scroll;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .emoji {
+    position: absolute;
+    right: 36px;
+    bottom: 6px;
+  }
+
+  .more {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+  }
+
+}

@@ -1,0 +1,14 @@
+- var ration = 24
+.chatTools
+  .inputBar
+    .keyboard(v-if='!voice')
+      img.inputWay(src='./lib/voice.svg' width=ration height=ration @click='toggleWay(true)')
+      .content
+        .inputContent(ref='content' style='height: 24px')
+          .textarea(contenteditable='true' ref='messageContent' style='font-size: 16px; line-height: 24px;' @keydown='getMessageContent')
+
+    .voice(v-if='voice')
+      img.inputWay(src='./lib/keyboard.svg' width=ration height=ration @click='toggleWay(false)')
+
+    img.emoji(src='./lib/emoji.svg' width=ration height=ration)
+    img.more(src='./lib/more.svg' width=ration height=ration)

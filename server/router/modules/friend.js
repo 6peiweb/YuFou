@@ -18,8 +18,9 @@ router.get('/info', (req, res) => {
 
         return User
           .findOne({ attributes, where })
-          .then((user) => (user = JSON.parse(JSON.stringify(user))) && (user.isFriend = false) && res.send(user));
+          .then((user) => (user = JSON.parse(JSON.stringify(user))) && (user.isFriend = false) || res.send(user));
       }
+
       (friend = JSON.parse(JSON.stringify(friend))) && (friend.isFriend = true) && res.send(friend);
     })
     .catch((err) => res.status(400).send(String(err)));

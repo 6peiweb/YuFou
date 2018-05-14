@@ -39,6 +39,10 @@ export default class UserDetail extends Vue {
     this.$router.push(<lp.RawLocation>{ name: 'friendChatView', params: { friendId: this.friendId } })
   }
 
+  jumpContacts() {
+    this.$router.push(<any>{ name: 'contacts', params: { userId: this.userId } })
+  }
+
 
   toast(message: string) {  // 弹出提示框
     return (<any>this).$toast({ message, duration: 1500})
