@@ -1,14 +1,18 @@
 - var ration = 24
 .chatTools
   .inputBar
-    .keyboard(v-if='!voice')
+    .keyboard(v-show='!voice')
       img.inputWay(src='./lib/voice.svg' width=ration height=ration @click='toggleWay(true)')
       .content
-        .inputContent(ref='content' style='height: 24px')
-          .textarea(contenteditable='true' ref='messageContent' style='font-size: 16px; line-height: 24px;' @keydown='getMessageContent')
+        .inputContent(v-bind:style='inputContentStyle')
+          .textarea(contenteditable='true' ref='messageContent' v-bind:style='textareaStyle' @keydown='getMessageContent')
 
-    .voice(v-if='voice')
+    .voice(v-show='voice')
       img.inputWay(src='./lib/keyboard.svg' width=ration height=ration @click='toggleWay(false)')
+      .content
+        .inputContent(v-bind:style='voiceStyle') 按住说话
 
-    img.emoji(src='./lib/emoji.svg' width=ration height=ration)
-    img.more(src='./lib/more.svg' width=ration height=ration)
+    img.showEmoji(src='./lib/emoji.svg' width=ration height=ration @click='toggleEmoji')
+    img.showMore(src='./lib/more.svg' width=ration height=ration)
+
+  emoji(@select='selectEmoji')

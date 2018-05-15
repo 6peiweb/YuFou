@@ -8,6 +8,7 @@ import App from './App.vue'
 import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import '@@/css/mint-ui-fix.css'
+import '@@/css/emoji-sprite.css'
 
 Vue.use(Mint)
 

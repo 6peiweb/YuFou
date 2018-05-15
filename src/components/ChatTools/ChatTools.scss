@@ -27,6 +27,7 @@ $coffee: #7b5353;
         border: 1px solid $coffee;
         border-radius: 5px;
         padding: 0 5px;
+        overflow: hidden;
 
         .textarea {
           width: 100%;
@@ -42,6 +43,14 @@ $coffee: #7b5353;
             display: none;
           }
 
+          &.fixedHeight {
+            height: 100%;
+          }
+          
+          img {
+            vertical-align: sub
+          }
+
         }
 
       }
@@ -50,13 +59,13 @@ $coffee: #7b5353;
 
   }
 
-  .emoji {
+  .showEmoji {
     position: absolute;
     right: 36px;
     bottom: 6px;
   }
 
-  .more {
+  .showMore {
     position: absolute;
     right: 6px;
     bottom: 6px;
