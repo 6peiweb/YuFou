@@ -1,6 +1,11 @@
 /*
  * mint-ui样式补充
  */
+
+body {
+  margin: 0;
+}
+
 input::-webkit-input-placeholder{
   color: #7b535388;
 }

@@ -15,4 +15,4 @@
     img.showEmoji(src='./lib/emoji.svg' width=ration height=ration @click='toggleEmoji')
     img.showMore(src='./lib/more.svg' width=ration height=ration)
 
-  emoji(@select='selectEmoji')
+  emoji(@select='selectEmoji' v-if='showEmoji')

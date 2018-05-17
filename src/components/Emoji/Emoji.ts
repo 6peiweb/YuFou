@@ -11,9 +11,7 @@ export default class Emoji extends Vue {
   private activeIndex: number = 0
 
   get emojis() {
-    return this.panels.map(item => {
-      return Object.keys(EmojiData[item])
-    })
+    return this.panels.map(item => Object.keys(EmojiData[item]))
   }
 
   changeActive (index: number) {

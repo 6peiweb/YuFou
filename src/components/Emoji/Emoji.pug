@@ -1,9 +1,9 @@
-.emoji
-  ul.emoji-controller
-    li(v-for='(panel, index) in panels' @click='changeActive(index)' :class='{active: index === activeIndex}') {{ panel }}
-  
-  ul.emoji-container
-    li(v-for='(emojiGroup, index) in emojis' style='padding: 0' :key='index' v-if='index === activeIndex')
+.emoji  
+  .emoji-content
+    .items(v-for='(emojiGroup, index) in emojis' :key='index' v-if='index === activeIndex')
       a(href='javascript:;' v-for='(emoji, index) in emojiGroup' :key='index' @click='selectItem(emoji)')
         span.emoji-item(:title='emoji' :class='"sprite-" + getPureName(emoji)')
+  
+  .emoji-panels
+    .panel(v-for='(panel, index) in panels' @click='changeActive(index)' :class='{active: index === activeIndex}') {{ panel }}
         

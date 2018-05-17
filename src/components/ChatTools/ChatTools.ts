@@ -21,6 +21,7 @@ import createEmoji from './lib/createEmoji'
 
 export default class ChatTools extends Vue {
   private voice: boolean = false
+  private showEmoji: boolean = false
   private messageContent: string = ''
   private inputContentStyle: any = { height: '' }
   private textareaStyle: any = undefined
@@ -56,6 +57,7 @@ export default class ChatTools extends Vue {
 
   toggleEmoji() { // 切换表情的显示
     this.toggleWay(false)
+    this.showEmoji = !this.showEmoji
   }
 
   selectEmoji (emojiCode: string) {  // 选中表情，把document光标对象移到输入表情最后
@@ -82,6 +84,7 @@ export default class ChatTools extends Vue {
     range.collapse(true)
     selection.removeAllRanges()
     selection.addRange(range)
+    this.lastEditRange = range
     this.getMessageContent()
   }
 
