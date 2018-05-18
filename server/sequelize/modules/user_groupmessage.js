@@ -29,6 +29,11 @@ const UserGroupMessage = sequelize.define('User_GroupMessage', {
     // },
     comment: '发送者ID'
   },
+  'M_Time': {
+    type: Sequelize.DATE,
+    allowNull: false,
+    comment: '消息发送时间'
+  },
   'UGM_Content': {
     type: Sequelize.TEXT,
     allowNull: false,

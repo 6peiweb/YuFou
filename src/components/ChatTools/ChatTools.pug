@@ -5,7 +5,7 @@
       img.inputWay(src='./lib/voice.svg' width=ration height=ration @click='toggleWay(true)')
       .content
         .inputContent(v-bind:style='inputContentStyle')
-          .textarea(contenteditable='true' ref='messageContent' v-bind:style='textareaStyle' @keydown='getMessageContent')
+          .textarea(contenteditable='true' ref='messageContent' v-bind:style='textareaStyle' @keydown='listenUserInput($event)')
 
     .voice(v-show='voice')
       img.inputWay(src='./lib/keyboard.svg' width=ration height=ration @click='toggleWay(false)')
@@ -15,4 +15,5 @@
     img.showEmoji(src='./lib/emoji.svg' width=ration height=ration @click='toggleEmoji')
     img.showMore(src='./lib/more.svg' width=ration height=ration)
 
-  emoji(@select='selectEmoji' v-if='showEmoji')
+  transition(name='slide-bottom')
+    emoji(@select='selectEmoji' v-if='showEmoji')

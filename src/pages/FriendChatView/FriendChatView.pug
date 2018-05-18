@@ -1,6 +1,10 @@
-#FriendChatView
+#FriendChatView(@click='watchChatToolsHeight' @keydown='watchChatToolsHeight')
   mt-header(fixed :title='friendName')
     mt-button(icon='back' slot='left' @click='jumpMessage') 消息
     img.user(src='image/chatView/user.svg' slot='right' width='24' height='24' @click='jumpUserDetail')
 
-  chat-tools(:ration='24')
+  .chat-block(ref='chatBlock')
+    mt-loadmore(:top-method='loadTop' ref='loadmore')
+      message(v-for='(message, index) in messageList' :key='index' :isSelf='message.M_FromUserID === userId' :message='message')
+
+  chat-tools(:ration='24' ref='chatTools' @postMessage='postMessage' @scrollToBottom='scrollToBottom')

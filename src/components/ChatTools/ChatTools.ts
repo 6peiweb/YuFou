@@ -2,6 +2,8 @@ import Component from 'vue-class-component'
 import Vue from 'vue'
 import Emoji from '@/components/Emoji/Emoji.vue'
 import createEmoji from './lib/createEmoji'
+import { resolve } from 'url';
+import { rejects } from 'assert';
 
 @Component({
   name: 'chatTools',
@@ -43,10 +45,23 @@ export default class ChatTools extends Vue {
     this.voice = key
   }
 
+  listenUserInput(e: any) {  
+    this.getMessageContent()
+      .then(() => {
+        if (e.keyCode === 13 && !e.shiftKey) {
+          e.preventDefault()
+          this.$emit('postMessage', this.messageContent)
+          this.textarea.innerHTML = ''
+        }
+      })
+      .catch((err) => console.log(err))
+  }
+
   getMessageContent() { // 等待输入完毕获取到输入的值
-    setTimeout(() => {
+    return new Promise((resolve, reject) => {
       this.messageContent = this.textarea.innerHTML
       this.lastEditRange = getSelection().getRangeAt(0)
+      resolve()
     })
   }
 
@@ -58,6 +73,7 @@ export default class ChatTools extends Vue {
   toggleEmoji() { // 切换表情的显示
     this.toggleWay(false)
     this.showEmoji = !this.showEmoji
+    this.emitChatBlockScroll()
   }
 
   selectEmoji (emojiCode: string) {  // 选中表情，把document光标对象移到输入表情最后
@@ -88,11 +104,15 @@ export default class ChatTools extends Vue {
     this.getMessageContent()
   }
 
-  getCurrentCursorSite(sourceElement: any, targetElement: any) {
+  getCurrentCursorSite(sourceElement: any, targetElement: any) {  // 获取历史光标位置
     for(let i in sourceElement.childNodes) {
       if(sourceElement.childNodes[i] === targetElement) return Number(i)
     }
     return 0
+  }
+
+  emitChatBlockScroll() {
+    this.$emit('scrollToBottom')
   }
 
 }

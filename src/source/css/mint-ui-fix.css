@@ -81,6 +81,17 @@ header.mint-header {
   transform: translateX(0);
 }
 
+/* slide-bottom路由动画 */
+.slide-bottom-enter-active, .slide-bottom-leave-active {
+  transition: all 0.1s ease;
+}
+.slide-bottom-enter, .slide-bottom-leave-to {
+  transform: translateY(100%);
+}
+.slide-bottom-enter-to,.slide-bottom-leave {
+  transform: translateY(0);
+}
+
 /* friend-slider动画 */
 .friend-slider-enter-active {
   animation: friend-slider-enter .5s;

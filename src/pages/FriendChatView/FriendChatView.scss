@@ -17,4 +17,12 @@ $side: 0.75em;
   left: 0;
   background: $background;
 
+  .chat-block {
+    @include position(50px);
+    right: 0;
+    left: 0;
+    bottom: 38px;
+    overflow: scroll;
+  }
+
 }

@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router()
-const { Friend, User } = require('../../sequelize')
+const express = require('express');
+const router = express.Router();
+const { Friend, User, Message, MessageType } = require('../../sequelize');
 
 router.get('/info', (req, res) => {
   if (!req.query.userId || !req.query.friendId) return res.status(400).send(`Lack of parameter`);
@@ -23,6 +23,20 @@ router.get('/info', (req, res) => {
 
       (friend = JSON.parse(JSON.stringify(friend))) && (friend.isFriend = true) && res.send(friend);
     })
+    .catch((err) => res.status(400).send(String(err)));
+  
+});
+
+router.get('/message', (req, res) => {
+  if (!req.query.userId || !req.query.friendId) return res.status(400).send(`Lack of parameter`);
+  
+  let attributes = { exclude: ['UserUID', 'MessageTypeMTID'] },
+      where = { M_FromUserID: [req.query.userId, req.query.friendId], M_ToUserID: [req.query.userId, req.query.friendId] },
+      include = [ { model: User, attributes: { exclude: ['U_Password', 'U_FriendPolicyAnswer', 'U_FriendPolicyPassword', 'UserStateUSID', 'UserFriendPolicyUFPID'] } } ];
+
+  Message
+    .findAndCountAll({ attributes, where, include })
+    .then((messages) => res.send(messages))
     .catch((err) => res.status(400).send(String(err)));
   
 });

@@ -33,8 +33,6 @@ Friend.belongsTo(FriendGroup, {foreignKey: 'F_FriendGroupID'});
 // Message表外键关系映射
 User.hasMany(Message);
 Message.belongsTo(User, {foreignKey: 'M_FromUserID'});
-User.hasMany(Message);
-Message.belongsTo(User, {foreignKey: 'M_ToUserID'});
 MessageType.hasMany(Message);
 Message.belongsTo(MessageType, {foreignKey: 'M_MessageTypeID'});
 

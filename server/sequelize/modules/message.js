@@ -28,6 +28,11 @@ const Message = sequelize.define('Message', {
     // },
     comment: '接收者ID'
   },
+  'M_Time': {
+    type: Sequelize.DATE,
+    allowNull: false,
+    comment: '消息发送时间'
+  },
   'M_Content': {
     type: Sequelize.TEXT,
     allowNull: false,
