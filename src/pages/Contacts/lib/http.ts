@@ -1,11 +1,11 @@
 class Http {
 
   getFriendGroup (params: any) {
-    return ILib.http.get('/api/group/friends', params)
+    return ILib.http.get('/api/classify/friends', params)
   }
 
   getUserGroup (params: any) {
-    return ILib.http.get('/api/group/users', params)
+    return ILib.http.get('/api/classify/users', params)
   }
 
 }

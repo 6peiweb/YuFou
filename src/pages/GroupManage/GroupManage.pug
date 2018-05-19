@@ -1,0 +1,11 @@
+#groupManage
+  mt-header(fixed title='群管理')
+    mt-button(icon='back' slot='left' @click='jumpGroupDetail') 返回
+    mt-button(slot='right' @click.native='modifyGroupInfo') 确认
+  
+  .groupInfo
+    mt-field.groupName(label='群聊名称' v-model='groupName')
+    mt-field.intro(label='群简介' placeholder='未设置' type='textarea' rows='4' v-model='intro')
+    mt-field.notice(label='群公告' placeholder='未设置' type='textarea' rows='4' v-model='notice')
+    mt-cell.manage(title='群主管理权转让')
+      img.more(src='/image/owner/more.svg' width='20' height='20')

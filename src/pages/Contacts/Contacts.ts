@@ -30,13 +30,13 @@ export default class Contacts extends Vue {
   openSearch() {  // 跳转到搜索页
     console.log(1234)
   }
-
-  showContacts() {  
-    console.log('click')
-  }
   
   selectFriend(friendId: number) {  // 选中朋友进行下一步操作
     this.$router.push(<lp.RawLocation>{ name: 'userDetail', params: { friendId } })
+  }
+
+  selectGroup(groupId: number) {  // 选中朋友进行下一步操作
+    this.$router.push(<lp.RawLocation>{ name: 'groupDetail', params: { groupId } })
   }
 
   toast(message: string) {  // 弹出提示框

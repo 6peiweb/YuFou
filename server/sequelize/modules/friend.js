@@ -46,7 +46,7 @@ const Friend = sequelize.define('Friend', {
   updatedAt: Sequelize.DATE
 }, {
   freezeTableName: true, // Model 对应的表名将与model名相同
-  timestamps: false,     // 是否自动添加时间戳createAt，updateAt
+  timestamps: true,     // 是否自动添加时间戳createAt，updateAt
   comment: '好友表'
 });
 

@@ -1,0 +1,27 @@
+$white: #fff;
+$tabbar: #fafafa;
+$font: #2c3e50;
+$coffee: #7b5353;
+
+@mixin position($top) {
+  position: absolute;
+  top: $top;
+}
+
+#groupManage {
+  @include position(0);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $tabbar;
+  overflow: scroll;
+
+  .groupInfo {
+    margin-top: 6em;
+
+    .intro, .notice, .manage {
+      margin-top: 2em;
+    }
+  }
+
+}

@@ -2,20 +2,20 @@ import Component from 'vue-class-component'
 import Vue from 'vue'
 
 @Component({
-  name: 'message',
+  name: 'messageInfo',
   props: {
     isSelf: Boolean,
     message: Object
   }
 })
 
-export default class Message extends Vue {
+export default class MessageInfo extends Vue {
   private name: string = ''
   private style = {
     height: ''
   }
 
-  mounted() {
+  mounted() { // 组件渲染完，获取到内容的高度
     this.$nextTick(() => {
       this.style.height = `${(<any>this.$refs.content).offsetHeight}px`
     })

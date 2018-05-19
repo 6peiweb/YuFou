@@ -1,0 +1,98 @@
+$white: #fff;
+$tabbar: #fafafa;
+$font: #2c3e50;
+$coffee: #7b5353;
+$red: #f11;
+
+$side: 0.75em;
+
+@mixin position($top) {
+  position: absolute;
+  top: $top;
+}
+
+#groupDetail {
+  @include position(0);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $tabbar;
+  overflow: scroll;
+
+  .membersPortrait {
+    margin-top: 4em;
+    width: 100%;
+    padding: $side;
+    background: $white;
+    
+    .member {
+      margin: $side;
+      display: inline-block;
+      height: 80px;
+      position: relative;
+      text-align: center;
+      
+      .portrait {
+        border-radius: 5px;
+        border: 0.3px solid $tabbar;
+      }
+
+      .name {
+        color: $font;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;  
+        text-overflow: ellipsis;  
+        white-space: nowrap;
+      }
+
+    }
+    
+    .addMember, .deleteMember {
+      margin: 0 $side;
+      border-radius: 5px;
+      border: 1px solid $coffee;
+    }
+
+  }
+
+  .groupInfo {
+
+    .groupName, .intro, .manage {
+      margin-top: 2 * $side;
+    }
+
+    .intro, .notice {
+      textarea {
+        text-indent: 2em;
+
+        &:disabled {
+          background: $white;
+        }
+
+        &::-webkit-input-placeholder {
+         text-align: right;
+        }
+
+      }
+    }
+
+  }
+  
+  .exit {
+    margin: 2 * $side 0;
+    background: $red;
+    color: $white;
+  }
+  
+  .mint-actionsheet {
+
+    .mint-actionsheet-listitem {
+      color: $red;
+    }
+
+  }
+
+}

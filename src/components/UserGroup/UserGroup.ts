@@ -16,6 +16,10 @@ export default class UserGroup extends Vue {
     // console.log(this.$props.groupInfo)
   }
 
+  selectGroup(groupId: number) {  // 选中群组，触发父组件selectGroup事件
+    this.$emit('selectGroup', groupId)
+  }
+
   toggleShow() {
     this.dropDown = !this.dropDown
   }

@@ -3,6 +3,7 @@
  */
 
 const axios = require('axios')
+const socketIO = require('socket.io-client')
 const { Indicator, MessageBox } = require('mint-ui')
 
 window['ILib'] = {
@@ -12,6 +13,8 @@ window['ILib'] = {
     headers: { 'X-Requested-With': 'XMLHttpRequest' }
   })
 }
+
+window['ISocket'] = socketIO.connect('http://localhost:4000')
 
 window['IMint'] = {
   Indicator,

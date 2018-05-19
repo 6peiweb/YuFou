@@ -7,7 +7,7 @@
     transition(name='drop-down')
       .group-members(v-if='dropDown')
         .group-member(v-for='(value, key) in groupInfo.rows' :key='key' @click='selectMember(value.User.U_ID)')
-          img.portrait(src='@@/image/yufou.png' width='48' height='48')
+          img.portrait(src='@@/image/yufou.png' width='40' height='40')
           .userInfo
             .username {{ value.F_Name || value.User.U_NickName }}
             .singature [{{ value.User.User_State.US_Name }}]{{ value.User.U_SingaTure }}

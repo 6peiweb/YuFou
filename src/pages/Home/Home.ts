@@ -23,12 +23,17 @@ export default class Home extends Vue {
     owner: '我'
   }
   public animation: string = 'fade'
+  private socket: any = ISocket
 
   created() {   // 初始化选中tab、获取用户信息
     this.selectedTab = this.$route.name
     Http.getUserInfo({ params: { userId: this.$route.params.userId } })
-      .then((response: any) => this.$store.dispatch('update_userInfo', response.data))
+      .then((response: any) => {
+        this.$store.dispatch('update_userInfo', response.data)
+        this.socket.emit('setUID', this.$route.params.userId)
+      })
       .catch((error: any) => this.toast(`Failed to get user-Info by '${error}'`))
+      
   }
 
   getImgSrc(val: string) {

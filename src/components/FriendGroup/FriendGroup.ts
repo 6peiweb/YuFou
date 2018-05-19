@@ -20,7 +20,7 @@ export default class FriendGroup extends Vue {
     this.dropDown = !this.dropDown
   }
 
-  selectMember(userId: number) {  // 选中成员，出发父组建selectFriend事件
+  selectMember(userId: number) {  // 选中成员，触发父组件selectFriend事件
     this.$emit('selectFriend', userId)
   }
 

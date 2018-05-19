@@ -11,6 +11,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const server = http.createServer(app);
+const io = require('./socket.io')(server);
 const compiler = webpack(webpackDevConfig);
 const ip = (os.networkInterfaces().en0 || os.networkInterfaces().WLAN)[1].address;
 const port = 4000;

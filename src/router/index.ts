@@ -6,6 +6,8 @@ import Setting from '@/pages/Setting/Setting.vue'
 import Login from '@/pages/Login/Login.vue'
 import Register from '@/pages/Register/Register.vue'
 import UserDetail from '@/pages/UserDetail/UserDetail.vue'
+import GroupDetail from '@/pages/GroupDetail/GroupDetail.vue'
+import GroupManage from '@/pages/GroupManage/GroupManage.vue'
 import FriendChatView from '@/pages/FriendChatView/FriendChatView.vue'
 
 Vue.use(Router)
@@ -45,6 +47,16 @@ const routes: Array<lp.RouteConfig> = [
     path: '/userDetail/:friendId',
     name: 'userDetail',
     component: UserDetail
+  },
+  {
+    path: '/groupDetail/:groupId',
+    name: 'groupDetail',
+    component: GroupDetail
+  },
+  {
+    path: '/groupManage/:groupId',
+    name: 'groupManage',
+    component: GroupManage
   },
   {
     path: '/friendChatView/:friendId',

@@ -59,5 +59,6 @@ declare namespace lp {
 }
 
 declare var ILib: lp.ILib;
+declare var ISocket: any;
 declare var IMint: lp.IMint;
 declare var IClipboard: (method: string, content: string) => void;

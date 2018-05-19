@@ -1,8 +1,8 @@
 .contacts
   mt-search(cancel-text='取消' placeholder='搜索' @click='openSearch')
   mt-navbar(v-model='selectedTab')
-    mt-tab-item(:id='tabItems[0]' @click.native='showContacts') 好友
-    mt-tab-item(:id='tabItems[1]' @click.native='showContacts') 群聊
+    mt-tab-item(:id='tabItems[0]') 好友
+    mt-tab-item(:id='tabItems[1]') 群聊
     transition(name='friend-slider')
       .friend-slider(v-if='selectedTab === tabItems[0]')
     transition(name='group-slider')
@@ -12,4 +12,4 @@
     mt-tab-container-item(:id='tabItems[0]')
       friend-group(v-for='(value,key) in friendGroup' :groupInfo='value' @selectFriend='selectFriend' :key='key')
     mt-tab-container-item(:id='tabItems[1]')
-      user-group(v-for='(value,key) in userGroup' :groupInfo='value' :key='key')
+      user-group(v-for='(value,key) in userGroup' :groupInfo='value' @selectGroup='selectGroup' :key='key')

@@ -6,8 +6,8 @@
   .group-content
     transition(name='drop-down')
       .group-members(v-if='dropDown')
-        .group-member(v-for='(value, key) in groupInfo.rows' :key='key')
-          img.portrait(src='@@/image/yufou.png' width='48' height='48')
+        .group-member(v-for='(value, key) in groupInfo.rows' :key='key' @click='selectGroup(value.UG_ID)')
+          img.portrait(src='@@/image/yufou.png' width='40' height='40')
           .userInfo
             .username {{ value.UG_Name }}
             .singature {{ value.UG_Notice }}

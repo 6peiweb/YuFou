@@ -1,0 +1,21 @@
+#groupDetail
+  mt-header(fixed :title='title')
+    mt-button(icon='back' slot='left' @click='jumpContacts') 联系人
+
+  .membersPortrait
+    .member(v-for='(member, index) in members' :key='index')
+      img.portrait(src='@@/image/yufou.png' width='54' height='54' @click='jumpUserDetail(member.U_ID)')
+      span.name {{ member.U_NickName }}
+    img.addMember(src='@@/image/groupDetail/addMember.svg' width='54' height='54' @click='jumpAddMember')
+    img.deleteMember(src='@@/image/groupDetail/deleteMember.svg' width='54' height='54' @click='jumpDeleteMember' v-if='isAdmin()')
+  
+  .groupInfo
+    mt-cell.groupName(title='群聊名称' :value='groupInfo.UG_Name')
+    mt-field.intro(label='群简介' placeholder='未设置' type='textarea' rows='2' disabled :value='groupInfo.UG_Intro')
+    mt-field.notice(label='群公告' placeholder='未设置' type='textarea' rows='4' disabled :value='groupInfo.UG_Notice')
+    mt-cell.manage(title='群管理' v-if='isAdmin()' @click.native='jumpGroupManage')
+      img.more(src='/image/owner/more.svg' width='20' height='20')
+
+  mt-button.exit(size='large' @click='exitOptions') 删除并退出
+
+  mt-actionsheet(:actions='actions' v-model='sheetVisible')

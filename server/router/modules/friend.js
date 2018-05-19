@@ -27,7 +27,7 @@ router.get('/info', (req, res) => {
   
 });
 
-router.get('/message', (req, res) => {
+router.get('/messages', (req, res) => {
   if (!req.query.userId || !req.query.friendId) return res.status(400).send(`Lack of parameter`);
   
   let attributes = { exclude: ['UserUID', 'MessageTypeMTID'] },
@@ -39,6 +39,38 @@ router.get('/message', (req, res) => {
     .then((messages) => res.send(messages))
     .catch((err) => res.status(400).send(String(err)));
   
+});
+
+router.post('/message', (req, res) => {
+  if (!req.body.userId || !req.body.friendId || !req.body.message) return res.status(400).send(`Lack of parameter`);
+
+  Message
+    .create({ M_FromUserID: req.body.userId, M_ToUserID: req.body.friendId, M_Time: new Date(), M_Content: req.body.message, M_MessageTypeID: 1 })
+    .then((message) => {
+      let attributes = { exclude: ['UserUID', 'MessageTypeMTID'] },
+          where = { M_ID: message.get('M_ID') },
+          include = [ { model: User, attributes: { exclude: ['U_Password', 'U_FriendPolicyAnswer', 'U_FriendPolicyPassword', 'UserStateUSID', 'UserFriendPolicyUFPID'] } } ];
+
+      Message
+        .findOne({ attributes, where, include })
+        .then((messages) => res.send(messages))
+    })
+    .catch((err) => res.status(400).send(String(err)));
+      
+});
+
+router.get('/message', (req, res) => {
+  if (!req.query.M_ID ) return res.status(400).send(`Lack of parameter 'M_ID'`);
+
+  let attributes = { exclude: ['UserUID', 'MessageTypeMTID'] },
+      where = { M_ID: req.query.M_ID },
+      include = [ { model: User, attributes: { exclude: ['U_Password', 'U_FriendPolicyAnswer', 'U_FriendPolicyPassword', 'UserStateUSID', 'UserFriendPolicyUFPID'] } } ];
+
+  Message
+    .findOne({ attributes, where, include })
+    .then((message) => res.send(message))
+    .catch((err) => res.status(400).send(String(err)));
+      
 });
 
 module.exports = router;

@@ -1,12 +1,12 @@
-.message(:style='style')
+.messageInfo(:style='style')
   .left(v-if='!isSelf')
     img.portrait(src='@@/image/yufou.png' width='40' height='40')
     .content(ref='content')
       .name(v-if='name') {{ name }}
-      .body {{ message.M_Content }}
+      .body(v-html='message.M_Content')
 
   .right(v-if='isSelf')
     img.portrait(src='@@/image/yufou.png' width='40' height='40')
     .content(ref='content')
       .name(v-if='name') {{ name }}
-      .body {{ message.M_Content }}
+      .body(v-html='message.M_Content')
