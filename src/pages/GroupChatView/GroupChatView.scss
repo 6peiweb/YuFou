@@ -10,7 +10,7 @@ $side: 0.75em;
   top: $top;
 }
 
-#friendChatView {
+#groupChatView {
   @include position(0);
   right: 0;
   bottom: 0;

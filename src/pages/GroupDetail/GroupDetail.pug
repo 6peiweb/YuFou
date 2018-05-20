@@ -16,6 +16,8 @@
     mt-cell.manage(title='群管理' v-if='isAdmin()' @click.native='jumpGroupManage')
       img.more(src='/image/owner/more.svg' width='20' height='20')
 
+  mt-button.sendMessage(size='large' @click='enterGroupChatView') 发消息
+
   mt-button.exit(size='large' @click='exitOptions') 删除并退出
 
   mt-actionsheet(:actions='actions' v-model='sheetVisible')

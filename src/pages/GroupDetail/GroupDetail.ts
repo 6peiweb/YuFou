@@ -51,16 +51,22 @@ export default class GroupDetail extends Vue {
     this.$router.push(<lp.RawLocation>{ name: 'groupManage', params: { groupId: this.groupInfo.UG_ID } })
   }
 
+  enterGroupChatView() {
+    this.$router.push(<lp.RawLocation>{ name: 'groupChatView', params: { groupId: this.groupInfo.UG_ID } })
+  }
+
   exitOptions() { // 调出群组选项
     this.sheetVisible = true
   }
 
   exitGroup() { // 退出群组
     console.log(this.userId)
-    Http.deleteGroupMember({ params: { memberId: this.userId } })
-      .then((response: any) => {
-        console.log(response)
+    Http.deleteGroupMember({ params: { memberId: this.userId, groupId: this.groupInfo.UG_ID } })
+      .then(() => {
+        this.$router.push(<lp.RawLocation>{ name: 'message', params: { userId: this.userId } })
+        setTimeout(() =>  this.toast('退出成功！'), 500)
       })
+      .catch((error: any) => this.toast(`Failed to delete group-Member by '${error}'`))
   }
 
   isAdmin() {

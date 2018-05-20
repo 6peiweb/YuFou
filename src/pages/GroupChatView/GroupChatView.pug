@@ -1,0 +1,10 @@
+#groupChatView(@click='watchChatToolsHeight' @keydown='watchChatToolsHeight')
+  mt-header(fixed :title='groupName')
+    mt-button(icon='back' slot='left' @click='jumpMessage') 消息
+    img.user(src='image/chatView/group.svg' slot='right' width='24' height='24' @click='jumpGroupDetail')
+
+  .chat-block(ref='chatBlock')
+    mt-loadmore(:top-method='loadTop' ref='loadmore')
+      messageInfo(v-for='(message, index) in messageList' :key='index' :isSelf='message.UGM_FromUserID === userId' :message='message' :spoker='message.User.U_NickName')
+
+  chat-tools(:ration='24' ref='chatTools' @postMessage='postMessage' @scrollToBottom='scrollToBottom')

@@ -29,7 +29,7 @@ const UserGroupMessage = sequelize.define('User_GroupMessage', {
     // },
     comment: '发送者ID'
   },
-  'M_Time': {
+  'UGM_Time': {
     type: Sequelize.DATE,
     allowNull: false,
     comment: '消息发送时间'
@@ -39,7 +39,7 @@ const UserGroupMessage = sequelize.define('User_GroupMessage', {
     allowNull: false,
     comment: '消息内容'
   },
-  'UGM_Expires': {
+  'UGM_Expries': {
     type: Sequelize.INTEGER(11),
     allowNull: true,
     comment: '消息到期时间'
