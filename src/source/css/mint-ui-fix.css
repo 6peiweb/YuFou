@@ -19,6 +19,19 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
   color: #7b535388;
 }
 
+textarea::-webkit-input-placeholder{
+  color: #7b535388;
+}
+textarea::-moz-placeholder{   /* Mozilla Firefox 19+ */
+  color: #7b535388;
+}
+textarea:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+  color: #7b535388;
+}
+textarea:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+  color: #7b535388;
+}
+
 header.mint-header {
   height: 50px;
   font-size: 16px;

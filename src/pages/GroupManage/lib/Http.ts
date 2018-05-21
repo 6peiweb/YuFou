@@ -4,7 +4,7 @@ class Http {
     return ILib.http.get('/api/group/info', params)
   }
 
-  updateGroupInfo (params: any) {
+  putGroupInfo (params: any) {
     return ILib.http.put('/api/group/info', params)
   }
 

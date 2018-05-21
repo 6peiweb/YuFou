@@ -6,11 +6,16 @@ import Vue from 'vue'
 })
 
 export default class Owner extends Vue {
-  private UserName: string = this.$store.getters.userInfo.U_NickName
-  private UserId: string = this.$store.getters.userInfo.U_UserID
+  private userId: number = this.$store.getters.userInfo.U_ID
+  private nickname: string = this.$store.getters.userInfo.U_NickName
+  private chatId: string = this.$store.getters.userInfo.U_UserID
   
   jumpSetting() {
     this.$router.push(<lp.RawLocation>{name: 'setting'})
+  }
+
+  jumpPersonalInfo() {
+    this.$router.push(<any>{ name: 'personalInfo', params: { userId: this.userId } })
   }
 
 }

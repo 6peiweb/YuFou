@@ -1,0 +1,8 @@
+#security
+  mt-header(fixed title='账号与安全')
+    mt-button(icon='back' slot='left' @click='jumpSetting') 返回
+    mt-button(slot='right' @click.native='modifyUserPassword') 确认
+
+  mt-field.oldPassword(label='旧密码' type='password' placeholder='输入旧密码' v-model='oldPassword')
+  mt-field.newPassword(label='新密码' type='password' placeholder='输入新密码' v-model='newPassword')
+  mt-field.regainPW(label='确认密码' type='password' placeholder='再次输入密码' v-model='regainPW')

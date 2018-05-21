@@ -1,6 +1,6 @@
 import Component from 'vue-class-component'
 import Vue from 'vue'
-import Http from './lib/http'
+import Http from './lib/Http'
 
 @Component({
   name: 'home',
@@ -49,6 +49,10 @@ export default class Home extends Vue {
 
   watchRoute(newRoute: lp.RouteConfig) {  // 监听主页面路由变化
     this.selectedTab = newRoute.name
+  }
+
+  jumpAddFriend() {
+    this.$router.push(<any>{ name: 'addFriend', params: { userId: this.$route.params.userId } })
   }
 
   toast(message: string) {  // 弹出提示框

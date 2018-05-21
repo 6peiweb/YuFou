@@ -1,0 +1,27 @@
+$white: #fff;
+$green: #0cb93b;
+
+@mixin position($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+#addFriend {
+  @include position(0, 0, 0, 0);
+  background: #f3f3f3;
+  overflow: scroll;
+
+  .serachInfo {
+    margin-top: 6em;
+  }
+
+  .serach {
+    margin-top: 10px;
+    background: $green;
+    color: $white;
+  }
+
+}

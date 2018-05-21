@@ -1,0 +1,21 @@
+@mixin position($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+#security {
+  @include position(0, 0, 0, 0);
+  background: #f3f3f3;
+
+  .oldPassword {
+    margin-top: 6em;
+  }
+
+  .newPassword {
+    margin-top: 10px;
+  }
+
+}

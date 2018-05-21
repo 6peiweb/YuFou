@@ -1,0 +1,17 @@
+#personalInfo
+  mt-header(fixed title='个人信息')
+    mt-button(icon='back' slot='left' @click='jumpOwner') 返回
+    mt-button(slot='right' @click.native='modifyPersonalInfo') 确认
+  
+  .userInfo
+    mt-field.intro(label='昵称' placeholder='未设置' v-model='nickname')
+    mt-cell.sex(title='性别' is-link :value='sex' @click.native='toggleSexPicker')
+    mt-cell.birthday(title='生日' is-link :value='showBirthday' @click.native='openDatePicker')
+    mt-field.address(label='所在地' v-model='address')
+    mt-field.singature(label='个性签名' placeholder='未设置' type='textarea' rows='4' v-model='singature')
+
+  mt-popup.sexpicker(v-model='sexPopupVisible' position='bottom' style='width: 100%')
+    mt-picker(ref='sexpicker' :slots='sexSlots' @change='sexChange' :showToolbar='true')
+      span.mint-datetime-action.mint-datetime-cancel(@click='toggleSexPicker') 取消
+      span.mint-datetime-action.mint-datetime-confirm(@click='sexConfirm') 确定
+  mt-datetime-picker(ref='datepicker' type='date' v-model='datepickerValue' @confirm='birthDayConfirm')

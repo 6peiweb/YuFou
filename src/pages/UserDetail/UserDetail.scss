@@ -2,6 +2,8 @@ $tabbar: #fafafa;
 $background: #f3f3f3;
 $font: #2c3e50;
 $green: #0cb93b;
+$white: #fff;
+$red: #f11;
 
 $side: 0.75em;
 
@@ -51,7 +53,22 @@ $side: 0.75em;
   .sendMessage {
     margin-top: 2 * $side;
     background: $green;
-    color: $background;
+    color: $white;
+  }
+
+  .exit {
+    margin-top: $side;
+    margin-bottom: 2 * $side;
+    background: $red;
+    color: $white;
+  }
+  
+  .mint-actionsheet {
+
+    .mint-actionsheet-listitem {
+      color: $red;
+    }
+
   }
 
 }

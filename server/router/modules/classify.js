@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { FriendGroup, Friend, User, UserState, UserGroup } = require('../../sequelize');
 
-router.get('/friends', (req, res) => {
+router.get('/friends', (req, res) => {  // 好友分组
   if (!req.query.userId) return res.status(400).send(`Lack of parameter 'userId'`);
 
   let attributes = { exclude: ['UserUID'] },
@@ -42,7 +42,7 @@ router.get('/friends', (req, res) => {
 
 })
 
-router.get('/users', (req, res) => {
+router.get('/users', (req, res) => {  // 群聊分组
   if (!req.query.userId) return res.status(400).send(`Lack of parameter 'userId'`);
 
   let attributes = { exclude: ['UserUID'] },

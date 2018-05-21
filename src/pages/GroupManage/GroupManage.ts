@@ -26,7 +26,7 @@ export default class GroupManage extends Vue {
   modifyGroupInfo() { // 更新群组信息
     let { groupName, intro, notice } = this
     IMint.Indicator.open({ text: '更新中...', spinnerType: 'snake' })
-    Http.updateGroupInfo({groupId: this.$route.params.groupId, groupName, intro, notice})
+    Http.putGroupInfo({groupId: this.$route.params.groupId, groupName, intro, notice})
       .then(() => setTimeout(() => this.toast(`更新成功!`), 1500))
       .catch((error: any) => setTimeout(() => this.toast(`Failed to update group-Info by '${error}'`), 1500))
       .finally(() => setTimeout(() => IMint.Indicator.close(), 1500))

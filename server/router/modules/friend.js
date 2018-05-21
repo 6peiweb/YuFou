@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Friend, User, Message, MessageType } = require('../../sequelize');
 
-router.get('/info', (req, res) => {
+router.get('/info', (req, res) => { // 好友信息
   if (!req.query.userId || !req.query.friendId) return res.status(400).send(`Lack of parameter`);
   
   let attributes = { exclude: ['UserUID', 'FriendGroupFGID'] },
@@ -27,7 +27,31 @@ router.get('/info', (req, res) => {
   
 });
 
-router.get('/messages', (req, res) => {
+router.delete('/info', (req, res) => {  // 删除好友
+  if (!req.query.userId || !req.query.friendId) return res.status(400).send(`Lack of parameter`);
+
+  let where = { F_UserID: [req.query.userId, req.query.friendId], F_FriendID: [req.query.userId, req.query.friendId] };
+
+  Friend
+    .destroy({ where })
+    .then((group) => res.send({ data: { group }, message: `deleted successfully.` }))
+    .catch((err) => res.status(400).send(String(err)));
+
+});
+
+router.put('/remark', (req, res) => {   // 修改好友备注
+  if (!req.body.userId || !req.body.friendId || !req.body.remark) return res.status(400).send(`Lack of parameter`);
+
+  let where = { F_UserID: req.body.userId, F_FriendID: req.body.friendId };
+
+  Friend
+    .update({ F_Name: req.body.remark }, { where })
+    .then((result) => res.send(result))
+    .catch((err) => res.status(400).send(String(err)));
+
+});
+
+router.get('/messages', (req, res) => { // 好友历史聊天记录
   if (!req.query.userId || !req.query.friendId) return res.status(400).send(`Lack of parameter`);
   
   let attributes = { exclude: ['UserUID', 'MessageTypeMTID'] },
@@ -41,7 +65,7 @@ router.get('/messages', (req, res) => {
   
 });
 
-router.post('/message', (req, res) => {
+router.post('/message', (req, res) => { // 好友私聊消息
   if (!req.body.userId || !req.body.friendId || !req.body.message) return res.status(400).send(`Lack of parameter`);
 
   Message
@@ -59,7 +83,7 @@ router.post('/message', (req, res) => {
       
 });
 
-router.get('/message', (req, res) => {
+router.get('/message', (req, res) => {  // 获取最新一条好友消息
   if (!req.query.M_ID ) return res.status(400).send(`Lack of parameter 'M_ID'`);
 
   let attributes = { exclude: ['UserUID', 'MessageTypeMTID'] },

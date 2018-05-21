@@ -1,51 +1,50 @@
 import Component from 'vue-class-component'
 import Vue from 'vue'
+import Http from './lib/Http'
+import MessageRecord from '@/components/MessageRecord/MessageRecord.vue'
 
 @Component({
   name: 'message',
-  // beforeRouteLeave (to, from , next) {
-  //   const answer = window.confirm('Do you really want to leave? you have unsaved changes!')
-  //   if (answer) {
-  //     next()
-  //   } else {
-  //     next(false)
-  //   }
-  // }
+  components: {
+    MessageRecord
+  }
 })
 
 export default class Message extends Vue {
-  private buttongroup: Array<object> = [
-    {
-      content: '置顶',
-      style: {
-        background: '#ccc4c4',
-        color: '#fff'
-      }
-    },
-    {
-      content: '标为未读',
-      style: {
-        background: '#d47e21',
-        color: '#fff'
-      }
-    },
-    {
-      content: '删除',
-      style: {
-        background: '#ef1b1b',
-        color: '#fff'
-      }
-    }
-  ]
-  private items: Array<object> = []
+  private userId: number = this.$store.getters.userInfo.U_ID || 1
+  private messageList: Array<object> = []
+  private messageIds: Array<object> = []
 
   created() {
-    for(let i = 0; i < 100; i ++) {
-      this.items.push({
-        id: i,
-        title: `我是第${100 - i}个聊天记录`
+    Http.getUserRecords({ params: { userId: this.userId }})
+      .then((response: any) => {
+        this.messageIds = response.data
+        for(let prop in this.messageIds) {
+          for(let i in this.messageIds[prop]) {
+            Http.getUserMessage({ params: { userId: this.userId, [prop]: (<any>this.messageIds[prop])[i] } })
+              .then((response: any) => {
+                if (response.data) {
+                  response.data.time = new Date(response.data.time).toLocaleString()
+                  this.messageList.push(response.data)
+                }
+              })
+          }
+        }
       })
-    }
+      .catch((error: any) => this.toast(`Failed to get user-Messages by '${error}'`))
+  }
+
+  enterGroupChatView(groupId: number) {
+    this.$router.push(<lp.RawLocation>{ name: 'groupChatView', params: { groupId } })
+  }
+
+  enterFriendChatView(friendId: number) {
+    this.$router.push(<lp.RawLocation>{ name: 'friendChatView', params: { friendId } })
+  }
+
+  toast(message: string) {  // 弹出提示框
+    return (<any>this).$toast({ message, duration: 1500})
   }
 
 }
+

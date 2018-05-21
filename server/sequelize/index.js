@@ -37,8 +37,8 @@ MessageType.hasMany(Message);
 Message.belongsTo(MessageType, {foreignKey: 'M_MessageTypeID'});
 
 // UserGroupMessage表外键关系映射
-User.hasMany(UserGroupMessage);
-UserGroupMessage.belongsTo(User, {foreignKey: 'UGM_UserGroupID'});
+UserGroup.hasMany(UserGroupMessage);
+UserGroupMessage.belongsTo(UserGroup, {foreignKey: 'UGM_UserGroupID'});
 User.hasMany(UserGroupMessage);
 UserGroupMessage.belongsTo(User, {foreignKey: 'UGM_FromUserID'});
 MessageType.hasMany(UserGroupMessage);

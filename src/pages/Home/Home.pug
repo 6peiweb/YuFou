@@ -1,6 +1,6 @@
 #home
   mt-header(fixed :title='selectedHead[selectedTab]')
-    mt-button(icon='search' slot='right')
+    img.user(src='image/header/addFriend.svg' slot='right' width='24' height='24' @click='jumpAddFriend')
   mt-tabbar(fixed v-model='selectedTab')
     mt-tab-item(v-for='item in tablist' :id='item.name' :key='item.name' :to='item.name')
       img(slot='icon' :src='getImgSrc(item.imgSrc)')

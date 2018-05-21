@@ -1,0 +1,39 @@
+$background: #f3f3f3;
+$coffee: #7b5353;
+
+.messageRecord {
+  height: 50px;
+  position: relative;
+  border-bottom: 0.3px solid $background;
+
+  .portrait {
+    border-radius: 50%;
+  }
+
+  .title {
+    position: absolute;
+    top: 50%;
+    right: 120px;
+    left: 55px;
+    transform: translateY(-50%);
+
+    .name {
+      color: $coffee;
+      font-size: 14px;
+    }
+
+    .content {
+      color: #999;
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+  }
+  
+  .time {
+    font-size: 12px;
+  }
+
+}

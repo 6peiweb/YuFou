@@ -1,0 +1,11 @@
+#addFriend
+  mt-header(fixed title='添加好友')
+    mt-button(icon='back' slot='left' @click='jumpMessage') 返回
+    mt-button(slot='right' @click.native='addFriend') 确认
+
+  mt-field.serachInfo(placeholder='请输入好友id/昵称' v-model='serachInfo')
+  
+  mt-button.serach(size='large' @click='searchFriend') 查找好友
+
+  mt-checklist.searchContent(title='复选框列表' v-model='selectedFriend' :options='searchContent')
+    

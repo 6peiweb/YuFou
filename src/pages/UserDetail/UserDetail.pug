@@ -10,14 +10,16 @@
       p(v-if='friendInfo.F_Name') 昵称: {{ friendInfo.U_NickName }}
 
   .operate
-    mt-cell.remark(title='设置备注' @click.native='jumpSetting' v-if='!friendInfo.F_Name')
+    mt-cell.remark(title='设置备注' @click.native='modifyRemark')
       img.more(src='/image/owner/more.svg' width='20' height='20')
     mt-cell.email(title='邮箱' :value='friendInfo.U_Email' @click.native='copyEmail(friendInfo.U_Email)')
 
   mt-cell.birthday(title='生日' :value='birthday')
   mt-cell.address(title='所在地' :value='friendInfo.U_Address')
-  mt-cell.moreinfo(title='更多' @click.native='jumpSetting')
-    img.more(src='/image/owner/more.svg' width='20' height='20')
 
   mt-button.sendMessage(size='large' @click='enterFriendChatView') 发消息
+
+  mt-button.exit(size='large' @click='deleteOptions') 删除好友
+
+  mt-actionsheet(:actions='actions' v-model='sheetVisible')
     

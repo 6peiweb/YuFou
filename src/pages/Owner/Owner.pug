@@ -1,9 +1,9 @@
 div.owner
-  mt-cell.userinfo
+  mt-cell.userinfo(@click.native='jumpPersonalInfo')
     img.portrait(src='@@/image/yufou.png' width='54' height='54')
     .maininfo
-      p {{ UserName }}
-      p chatId: {{ UserId }}
+      p {{ nickname }}
+      p chatId: {{ chatId }}
     .moreinfo
       img.qrcode(src='/image/owner/qrcode.svg' width='20' height='20')
       img.more(src='/image/owner/more.svg' width='20' height='20')

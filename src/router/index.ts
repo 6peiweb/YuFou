@@ -10,6 +10,9 @@ import GroupDetail from '@/pages/GroupDetail/GroupDetail.vue'
 import GroupManage from '@/pages/GroupManage/GroupManage.vue'
 import FriendChatView from '@/pages/FriendChatView/FriendChatView.vue'
 import GroupChatView from '@/pages/GroupChatView/GroupChatView.vue'
+import PersonalInfo from '@/pages/PersonalInfo/PersonalInfo.vue'
+import Security from '@/pages/Security/Security.vue'
+import AddFriend from '@/pages/AddFriend/AddFriend.vue'
 
 Vue.use(Router)
 
@@ -68,6 +71,21 @@ const routes: Array<lp.RouteConfig> = [
     path: '/groupChatView/:groupId',
     name: 'groupChatView',
     component: GroupChatView
+  },
+  {
+    path: '/personalInfo/:userId',
+    name: 'personalInfo',
+    component: PersonalInfo
+  },
+  {
+    path: '/security/:userId',
+    name: 'security',
+    component: Security
+  },
+  {
+    path: '/addFriend/:userId',
+    name: 'addFriend',
+    component: AddFriend
   }
 ]
 
