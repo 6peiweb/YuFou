@@ -29,7 +29,7 @@ router.post('/email', (req, res) => { // 用户邮箱验证
     .findOne({ attributes, where })
     .then((user) => {
       if (user.get('count') < 5) {
-        let captcha = require('../tools/email/captcha')();
+        let captcha = require('../../tools/email/captcha')();
         email({ to: req.body.email, captcha })
           .then((response) => res.send({ data: { sent: true, captcha, ...response }, message: `The captcha has been sent to ${req.body.email}.` }))
           .catch((err) => res.send({ data: { sent: false, captcha: '', ...err }, message: 'The captcha sent failed, please send again.' }));
